@@ -190,12 +190,12 @@
   .status-item { display:flex;align-items:center;gap:6px;color:var(--text-muted); }
   .status-item svg { width:13px;height:13px; }
   .status-item .hi { color:var(--accent);font-weight:700;font-family:'JetBrains Mono',monospace; }
-  .timer-wrap { display:flex;align-items:center;gap:8px; }
-  .timer-ring { width:36px;height:36px;position:relative; }
-  .timer-ring svg { width:36px;height:36px;transform:rotate(-90deg); }
-  .tr { fill:none;stroke:rgba(108,89,255,.15);stroke-width:3; }
-  .tp { fill:none;stroke:var(--accent);stroke-width:3;stroke-dasharray:87.96;stroke-dashoffset:0;stroke-linecap:round;transition:stroke-dashoffset 1s linear; }
-  .timer-num { position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;font-family:'JetBrains Mono',monospace;color:var(--accent); }
+  /* Live badge */
+  .live-badge { display:flex;align-items:center;gap:7px;background:rgba(34,211,163,.08);border:1px solid rgba(34,211,163,.2);border-radius:100px;padding:5px 12px;font-size:11px;font-weight:700;color:var(--success); }
+  .live-badge .ldot { width:7px;height:7px;background:var(--success);border-radius:50%;animation:pulse-dot 1.5s ease-in-out infinite;flex-shrink:0; }
+  /* New email flash */
+  @keyframes new-flash{0%{background:rgba(34,211,163,.18)}100%{background:transparent}}
+  .inbox-new-flash { animation:new-flash 1.2s ease-out; }
 
   /* INBOX */
   .glow-divider { height:1px;background:linear-gradient(90deg,transparent,rgba(108,89,255,.4),transparent);margin:8px 0 18px;opacity:.6; }
@@ -499,16 +499,9 @@
           Checked: <span id="last-check" class="hi">&mdash;</span>
         </div>
       </div>
-      <div class="timer-wrap">
-        <span style="font-size:11px;color:var(--text-muted)">Next refresh</span>
-        <div class="timer-ring">
-          <svg viewBox="0 0 36 36">
-            <circle class="tr" cx="18" cy="18" r="14"/>
-            <circle class="tp" id="timer-prog" cx="18" cy="18" r="14"/>
-          </svg>
-          <div class="timer-num" id="timer-num">10</div>
+      <div class="live-badge">
+          <span class="ldot"></span> Live
         </div>
-      </div>
     </div>
 
     <!-- INBOX -->
@@ -635,9 +628,9 @@
   const GAPI = 'https://api.guerrillamail.com/ajax.php';
   const PROXY = 'https://corsproxy.io/?url=';
   const SAVED_KEY = 'tm_saved_v5';
-  const REFRESH_SECS = 10;
+  const POLL_MS = 3000; // real-time: check every 3 seconds
 
-  // 5 short clean domains — all share same Guerrilla Mail inbox
+  // 5 short clean domains
   const DOMAINS = [
     { v:'grr.la',             l:'grr.la'            },
     { v:'spam4.me',           l:'spam4.me'          },
@@ -652,8 +645,7 @@
   let currentDomain = 'grr.la';
   let emails = [];
   let emailCount = 0;
-  let countdown = REFRESH_SECS;
-  let timerInterval = null;
+  let pollInterval = null;
 
   /* ===== POPULATE DOMAIN UI ===== */
   function populateDomainUI() {
@@ -746,7 +738,7 @@
       const user=(d.email_addr||'').split('@')[0]||'user';
       setEmailDisplay(user, currentDomain);
       await fetchEmails(false);
-      startTimer(); renderSaved();
+      startPolling(); renderSaved();
     }catch{
       el.textContent='Error \u2014 please refresh'; el.classList.add('dim');
       document.getElementById('inbox-list').innerHTML=buildError('Could not connect. Check your network.');
@@ -764,7 +756,7 @@
       setTimeout(()=>inp.style.outline='',1500);
       return;
     }
-    clearInterval(timerInterval);
+    clearInterval(pollInterval);
     emails=[]; emailCount=0;
     try{
       const d=await gFetch({f:'set_email_user',email_user:user,lang:'en'});
@@ -772,7 +764,7 @@
     }catch{}
     setEmailDisplay(user,domain);
     await fetchEmails(false);
-    startTimer(); renderSaved();
+    startPolling(); renderSaved();
     window.scrollTo({top:0,behavior:'smooth'});
   }
 
@@ -793,7 +785,7 @@
   /* ===== SWITCH SAVED ===== */
   async function switchTo(email,tok){
     if(email===currentEmail)return;
-    clearInterval(timerInterval);
+    clearInterval(pollInterval);
     emails=[]; emailCount=0;
     sessionToken=tok||'';
     const parts=email.split('@');
@@ -801,11 +793,33 @@
     document.getElementById('inbox-list').innerHTML=buildSpinner();
     try{await gFetch({f:'set_email_user',email_user:parts[0]||email,lang:'en'});}catch{}
     await fetchEmails(false);
-    startTimer(); renderSaved();
+    startPolling(); renderSaved();
     window.scrollTo({top:0,behavior:'smooth'});
   }
 
-  /* ===== FETCH INBOX ===== */
+  /* ===== REAL-TIME POLLING ===== */
+  // Uses check_email (lightweight) to detect new mail first.
+  // Only calls get_email_list when count changes — very efficient.
+  async function checkForNew(){
+    try{
+      const d=await gFetch({f:'check_email',seq:emailCount});
+      sessionToken=d.sid_token||sessionToken;
+      const newCount=parseInt(d.count)||0;
+      if(newCount!==emailCount){
+        await fetchEmails(true);
+        // Flash inbox to signal new mail
+        const inbox=document.getElementById('inbox-list');
+        inbox.classList.remove('inbox-new-flash');
+        void inbox.offsetWidth; // reflow
+        inbox.classList.add('inbox-new-flash');
+      }
+    }catch{ /* silent — will retry next tick */ }
+  }
+
+  function startPolling(){
+    clearInterval(pollInterval);
+    pollInterval=setInterval(checkForNew, POLL_MS);
+  }
   async function fetchEmails(silent){
     if(!silent)document.getElementById('refresh-icon').classList.add('spin-icon');
     try{
@@ -886,17 +900,7 @@
     setTimeout(()=>toast.classList.remove('show'),2500);
   }
 
-  /* ===== TIMER ===== */
-  const CIRC=2*Math.PI*14;
-  function startTimer(){
-    clearInterval(timerInterval);
-    countdown=REFRESH_SECS; updateTimer();
-    timerInterval=setInterval(()=>{countdown--;updateTimer();if(countdown<=0){countdown=REFRESH_SECS;fetchEmails(true);}},1000);
-  }
-  function updateTimer(){
-    document.getElementById('timer-num').textContent=countdown;
-    document.getElementById('timer-prog').style.strokeDashoffset=CIRC*(1-countdown/REFRESH_SECS);
-  }
+  /* ===== TIMER (removed — now real-time polling) ===== */
   function updateStatus(){
     document.getElementById('email-count').textContent=emailCount;
     document.getElementById('last-check').textContent=new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit',second:'2-digit'});
@@ -928,11 +932,11 @@
   });
   document.getElementById('new-addr-btn').addEventListener('click',()=>{
     if(currentEmail)saveAddress(currentEmail,sessionToken);
-    clearInterval(timerInterval);
+    clearInterval(pollInterval);
     emails=[]; emailCount=0; sessionToken=''; currentEmail=''; currentUser='';
     initEmail();
   });
-  document.getElementById('refresh-btn').addEventListener('click',()=>{countdown=REFRESH_SECS;fetchEmails(false);});
+  document.getElementById('refresh-btn').addEventListener('click',()=>{fetchEmails(false);});
   document.getElementById('clear-all-btn').addEventListener('click',clearAll);
   document.getElementById('modal-close').addEventListener('click',closeModal);
   document.getElementById('modal-close-btn').addEventListener('click',closeModal);
