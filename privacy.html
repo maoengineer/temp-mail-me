@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — TempMail</title>
+  <meta name="description" content="TempMail Privacy Policy. Learn how we handle your data, what we collect, and how your privacy is protected when using our disposable email service." />
+  <link rel="canonical" href="https://yourdomain.vercel.app/privacy.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo"><div class="nav-logo-icon">⚡</div><span class="nav-logo-text">TempMail</span></a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li><li><a href="/blog.html">Blog</a></li>
+        <li><a href="/about.html">About</a></li><li><a href="/contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-right"><a href="/" class="nav-cta">Get Free Email ⚡</a></div>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+    <div class="mobile-nav" id="mobile-nav">
+      <a href="/">⚡ Home</a><a href="/blog.html">📝 Blog</a><a href="/about.html">ℹ️ About</a>
+      <a href="/contact.html">📫 Contact</a><a href="/privacy.html">🔒 Privacy</a><a href="/terms.html">📋 Terms</a>
+    </div>
+  </nav>
+
+  <div class="page-hero" style="padding-bottom:32px">
+    <div class="hero-badge">🔒 Legal</div>
+    <h1 class="hero-title">Privacy Policy</h1>
+    <p class="hero-subtitle">Last updated: April 18, 2025. We are committed to protecting your privacy. This policy explains exactly what we do (and don't do) with your data.</p>
+  </div>
+
+  <div class="page-content">
+    <div style="background:rgba(34,211,163,0.07);border:1px solid rgba(34,211,163,0.2);border-radius:var(--r-md);padding:16px 20px;margin-bottom:32px;">
+      <p style="margin:0;font-size:14px;color:var(--success);font-weight:600;">🛡️ TL;DR: We collect virtually no personal data. Emails are processed by Guerrilla Mail. Your saved addresses stay in your browser. We never sell anything.</p>
+    </div>
+
+    <h2>1. Information We Collect</h2>
+    <p>TempMail is a static website with no backend server. We do not operate a database and do not store any personal information on our servers. Here is what is involved when you use our service:</p>
+    <ul>
+      <li><strong>Temporary email addresses:</strong> Generated and managed by the Guerrilla Mail API (api.guerrillamail.com). We act only as a user interface for their service.</li>
+      <li><strong>Saved addresses:</strong> Stored exclusively in your browser's <code>localStorage</code>. This data never leaves your device and is never transmitted to us or any third party.</li>
+      <li><strong>Email messages:</strong> Fetched directly from Guerrilla Mail's servers in real time and displayed in your browser. We do not cache, store, or log email contents.</li>
+      <li><strong>Session tokens:</strong> Temporary tokens issued by Guerrilla Mail are stored in browser memory (JavaScript variables) and in localStorage if you save an address. These are not personal data.</li>
+    </ul>
+
+    <h2>2. Information We Do NOT Collect</h2>
+    <ul>
+      <li>We do not collect your name, real email address, physical address, or phone number</li>
+      <li>We do not require account registration of any kind</li>
+      <li>We do not track your browsing behavior across other websites</li>
+      <li>We do not use advertising trackers or third-party analytics scripts</li>
+      <li>We do not store, log, or analyze the contents of emails you receive</li>
+    </ul>
+
+    <h2>3. Cookies and Local Storage</h2>
+    <p>We do not set any cookies on your device. The only browser storage we use is <strong>localStorage</strong>, which stores your saved email addresses and session tokens. This storage:</p>
+    <ul>
+      <li>Exists only on your device — it is never transmitted to any server</li>
+      <li>Can be cleared at any time through your browser settings</li>
+      <li>Is not accessible to other websites (it is origin-scoped by your browser)</li>
+      <li>Contains no personal information — only Guerrilla Mail session tokens and email address strings</li>
+    </ul>
+
+    <h2>4. Third-Party Services</h2>
+    <p>TempMail uses the following third-party services:</p>
+    <ul>
+      <li><strong>Guerrilla Mail API</strong> (api.guerrillamail.com): Provides the temporary email functionality. Their privacy policy governs how email data is handled on their servers. We recommend reviewing their policy at <a href="https://www.guerrillamail.com" target="_blank" rel="noopener noreferrer">guerrillamail.com</a>.</li>
+      <li><strong>Google Fonts</strong>: We load the Inter font typeface from Google's CDN. Google may log font request data per their <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">privacy policy</a>.</li>
+      <li><strong>Vercel</strong>: Our website is hosted on Vercel. Vercel may collect standard web server logs (IP address, user agent, page accessed). See <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">Vercel's Privacy Policy</a>.</li>
+      <li><strong>corsproxy.io</strong>: Used as a fallback CORS proxy when direct API access is limited. They may log request metadata per their own policy.</li>
+    </ul>
+
+    <h2>5. How Email Data Works</h2>
+    <p>When you request a temporary email address, TempMail contacts the Guerrilla Mail API on your behalf. Guerrilla Mail creates a temporary inbox and returns an email address and session token. When emails are received, Guerrilla Mail stores them temporarily on their infrastructure. We display these emails in your browser by fetching them from the Guerrilla Mail API in real time.</p>
+    <p>We do not intercept, read, copy, or log any of this email content. Our website simply renders what the API returns.</p>
+
+    <h2>6. Children's Privacy</h2>
+    <p>TempMail is not directed to children under the age of 13. We do not knowingly collect any information from children. If you believe a child has used this service in violation of this policy, please contact us.</p>
+
+    <h2>7. Data Security</h2>
+    <p>Because we do not collect personal data, the risk of a data breach is minimal. The Guerrilla Mail session tokens stored in your localStorage are temporary and have limited utility outside of checking your specific inbox. We recommend clearing your browser's localStorage if you are using a shared or public computer.</p>
+
+    <h2>8. Your Rights</h2>
+    <p>Depending on your jurisdiction, you may have rights under privacy laws such as GDPR (EU) or CCPA (California). Since we do not collect personal data, there is generally nothing to access, correct, or delete from our end. For any concerns about data held by Guerrilla Mail or Vercel, please contact those services directly.</p>
+    <p>If you wish to remove saved addresses from our site, simply go to the main page, expand the "Saved Addresses" panel, and delete each address individually or use "Clear All." You can also clear site data directly in your browser settings.</p>
+
+    <h2>9. Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. Changes will be reflected by updating the "Last updated" date at the top of this page. Continued use of the service after changes constitutes acceptance of the revised policy.</p>
+
+    <h2>10. Contact Us</h2>
+    <p>If you have questions about this Privacy Policy or how TempMail handles data, please <a href="/contact.html">contact us through our contact page</a>. We are happy to answer any questions.</p>
+
+    <div class="page-divider"></div>
+    <p style="font-size:13px;color:var(--text-muted)">This Privacy Policy applies to the TempMail website. It does not apply to third-party services linked from our site. We encourage you to review the privacy policies of all third-party services you use.</p>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <a href="/" class="nav-logo" style="margin-bottom:12px;display:inline-flex"><div class="nav-logo-icon">⚡</div><span class="nav-logo-text">TempMail</span></a>
+          <p class="footer-brand-desc">Free disposable email addresses. Your privacy, protected.</p>
+          <div class="footer-badge"><span class="dot"></span> Service Online</div>
+        </div>
+        <div><div class="footer-col-title">Product</div><ul class="footer-links"><li><a href="/">Temp Email</a></li><li><a href="/#faq">FAQ</a></li></ul></div>
+        <div><div class="footer-col-title">Resources</div><ul class="footer-links"><li><a href="/blog.html">Blog</a></li><li><a href="/about.html">About</a></li><li><a href="/contact.html">Contact</a></li></ul></div>
+        <div><div class="footer-col-title">Legal</div><ul class="footer-links"><li><a href="/privacy.html">Privacy Policy</a></li><li><a href="/terms.html">Terms of Service</a></li></ul></div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2025 TempMail. All rights reserved.</p>
+        <div class="footer-legal"><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/contact.html">Contact</a></div>
+      </div>
+    </div>
+  </footer>
+  <script>document.getElementById('hamburger').addEventListener('click',()=>document.getElementById('mobile-nav').classList.toggle('open'));</script>
+</body>
+</html>

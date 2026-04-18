@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us — TempMail | Get in Touch</title>
+  <meta name="description" content="Contact the TempMail team. Have a question, feedback, or want to report an issue? We'd love to hear from you. We respond to all messages." />
+  <link rel="canonical" href="https://yourdomain.vercel.app/contact.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .contact-wrap { max-width: 900px; margin: 0 auto; padding: 0 24px 80px; position: relative; z-index: 1; }
+    .contact-form-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-xl); padding: 36px; }
+    .contact-form-card h2 { font-size: 1.3rem; font-weight: 800; margin-bottom: 24px; }
+    .faq-before { margin-bottom: 40px; }
+    .faq-before h2 { font-size: 1.1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 16px; }
+    .faq-link { display: flex; align-items: center; gap: 10px; padding: 14px 18px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-md); text-decoration: none; transition: var(--ease); margin-bottom: 8px; }
+    .faq-link:hover { border-color: var(--border-accent); background: var(--bg-card-hover); transform: translateX(4px); }
+    .faq-link-icon { font-size: 20px; flex-shrink: 0; }
+    .faq-link-text { font-size: 14px; font-weight: 600; color: var(--text-primary); }
+    .faq-link-sub { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+    .faq-link svg { width: 16px; height: 16px; color: var(--text-muted); margin-left: auto; }
+    .success-msg { display: none; background: rgba(34,211,163,0.08); border: 1px solid rgba(34,211,163,0.25); border-radius: var(--r-lg); padding: 28px; text-align: center; }
+    .success-msg.show { display: block; }
+    .success-msg h3 { font-size: 1.2rem; font-weight: 700; color: var(--success); margin-bottom: 8px; }
+    .success-msg p { font-size: 14px; color: var(--text-secondary); }
+  </style>
+</head>
+<body>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo"><div class="nav-logo-icon">⚡</div><span class="nav-logo-text">TempMail</span></a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li><li><a href="/blog.html">Blog</a></li>
+        <li><a href="/about.html">About</a></li><li><a href="/contact.html" class="active">Contact</a></li>
+      </ul>
+      <div class="nav-right"><a href="/" class="nav-cta">Get Free Email ⚡</a></div>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+    <div class="mobile-nav" id="mobile-nav">
+      <a href="/">⚡ Home</a><a href="/blog.html">📝 Blog</a><a href="/about.html">ℹ️ About</a>
+      <a href="/contact.html">📫 Contact</a><a href="/privacy.html">🔒 Privacy</a><a href="/terms.html">📋 Terms</a>
+    </div>
+  </nav>
+
+  <div class="page-hero" style="padding-bottom:32px">
+    <div class="hero-badge">📫 Get in Touch</div>
+    <h1 class="hero-title">Contact Us</h1>
+    <p class="hero-subtitle">Have a question, found a bug, or want to share feedback? We genuinely read every message and respond to all inquiries.</p>
+  </div>
+
+  <div class="contact-wrap">
+    <!-- Before You Contact -->
+    <div class="faq-before">
+      <h2>Before you write — check these quick answers:</h2>
+      <a class="faq-link" href="/#faq">
+        <span class="faq-link-icon">❓</span>
+        <div><div class="faq-link-text">How do I save an email address?</div><div class="faq-link-sub">Click "Save Address" on the main page</div></div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+      <a class="faq-link" href="/privacy.html">
+        <span class="faq-link-icon">🔒</span>
+        <div><div class="faq-link-text">Is my data stored anywhere?</div><div class="faq-link-sub">Read our Privacy Policy for full details</div></div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+      <a class="faq-link" href="/about.html">
+        <span class="faq-link-icon">ℹ️</span>
+        <div><div class="faq-link-text">How does TempMail work?</div><div class="faq-link-sub">Learn about our technology and mission</div></div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+    </div>
+
+    <div class="contact-grid">
+      <!-- CONTACT FORM -->
+      <div class="contact-form-card">
+        <h2>📬 Send Us a Message</h2>
+        <div id="success-msg" class="success-msg">
+          <h3>✅ Message Sent!</h3>
+          <p>Thank you for reaching out. We'll get back to you within 1–2 business days.</p>
+        </div>
+        <form id="contact-form" action="https://formspree.io/f/your-form-id" method="POST" novalidate>
+          <div class="form-group">
+            <label class="form-label" for="contact-name">Your Name</label>
+            <input type="text" id="contact-name" name="name" class="form-input" placeholder="John Doe" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="contact-email">Your Email Address</label>
+            <input type="email" id="contact-email" name="email" class="form-input" placeholder="your@email.com" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="contact-subject">Subject</label>
+            <select id="contact-subject" name="subject" class="form-select">
+              <option value="">Select a topic…</option>
+              <option value="bug">🐛 Bug Report</option>
+              <option value="feature">💡 Feature Request</option>
+              <option value="feedback">👍 General Feedback</option>
+              <option value="privacy">🔒 Privacy Question</option>
+              <option value="business">💼 Business Inquiry</option>
+              <option value="other">❓ Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="contact-message">Message</label>
+            <textarea id="contact-message" name="message" class="form-textarea" placeholder="Tell us what's on your mind…" required></textarea>
+          </div>
+          <button type="submit" class="s-btn s-btn-primary" style="width:100%;justify-content:center;padding:14px" id="submit-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="17" height="17"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Send Message
+          </button>
+        </form>
+      </div>
+
+      <!-- CONTACT INFO -->
+      <div>
+        <div class="contact-info-card" style="margin-bottom:16px">
+          <div class="contact-info-title">⏱️ Response Time</div>
+          <div class="contact-info-text">We typically respond within 1–2 business days. For urgent issues, please describe the problem in detail so we can prioritize.</div>
+        </div>
+        <div class="contact-info-card" style="margin-bottom:16px">
+          <div class="contact-info-title">🐛 Found a Bug?</div>
+          <div class="contact-info-text">Include your browser, operating system, and a description of what happened. Screenshots are very helpful. The more detail you provide, the faster we can fix it.</div>
+        </div>
+        <div class="contact-info-card" style="margin-bottom:16px">
+          <div class="contact-info-title">💼 Business Inquiries</div>
+          <div class="contact-info-text">For partnership, advertising, or licensing inquiries, select "Business Inquiry" above and describe your proposal. We consider all serious proposals.</div>
+        </div>
+        <div class="contact-info-card">
+          <div class="contact-info-title">🔒 Privacy Requests</div>
+          <div class="contact-info-text">For data-related requests, please read our <a href="/privacy.html" style="color:var(--accent);text-decoration:none">Privacy Policy</a> first. Since we collect no personal data, most privacy requests are automatically satisfied.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <a href="/" class="nav-logo" style="margin-bottom:12px;display:inline-flex"><div class="nav-logo-icon">⚡</div><span class="nav-logo-text">TempMail</span></a>
+          <p class="footer-brand-desc">Free disposable email addresses. Your privacy, protected.</p>
+          <div class="footer-badge"><span class="dot"></span> Service Online</div>
+        </div>
+        <div><div class="footer-col-title">Product</div><ul class="footer-links"><li><a href="/">Temp Email</a></li><li><a href="/#faq">FAQ</a></li></ul></div>
+        <div><div class="footer-col-title">Resources</div><ul class="footer-links"><li><a href="/blog.html">Blog</a></li><li><a href="/about.html">About</a></li><li><a href="/contact.html">Contact</a></li></ul></div>
+        <div><div class="footer-col-title">Legal</div><ul class="footer-links"><li><a href="/privacy.html">Privacy Policy</a></li><li><a href="/terms.html">Terms of Service</a></li></ul></div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2025 TempMail. All rights reserved.</p>
+        <div class="footer-legal"><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/contact.html">Contact</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('hamburger').addEventListener('click',()=>document.getElementById('mobile-nav').classList.toggle('open'));
+    document.getElementById('contact-form').addEventListener('submit', async function(e){
+      e.preventDefault();
+      const btn = document.getElementById('submit-btn');
+      btn.textContent = 'Sending…'; btn.disabled = true;
+      try {
+        const res = await fetch(this.action, { method:'POST', body: new FormData(this), headers:{Accept:'application/json'} });
+        if (res.ok) {
+          this.style.display = 'none';
+          document.getElementById('success-msg').classList.add('show');
+        } else { throw new Error(); }
+      } catch {
+        btn.innerHTML = '⚠️ Failed — try again';
+        btn.disabled = false;
+        setTimeout(()=>{ btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="17" height="17"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Send Message'; }, 2500);
+      }
+    });
+  </script>
+</body>
+</html>
