@@ -1,13 +1,13 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TempMail â€” Free Disposable Email | Choose Your Domain</title>
-  <meta name="description" content="Generate free temporary email addresses instantly. Choose your domain, save multiple inboxes, auto-refresh inbox. No sign-up required." />
-  <meta name="keywords" content="temp mail, temporary email, disposable email, choose email domain, anonymous email" />
-  <meta property="og:title" content="TempMail â€” Free Disposable Email, Choose Your Domain" />
-  <meta property="og:description" content="Generate anonymous disposable emails. Pick from 9 domains. Save multiple addresses and check them anytime." />
+  <title>TempMail &mdash; Free Disposable Email | Choose Your Domain</title>
+  <meta name="description" content="Generate free temporary email addresses instantly. Choose your domain from grr.la, spam4.me and more. Save multiple inboxes and auto-refresh. No sign-up required." />
+  <meta name="keywords" content="temp mail, temporary email, disposable email, grr.la, spam4.me, guerrillamail, anonymous email" />
+  <meta property="og:title" content="TempMail &mdash; Free Disposable Email" />
+  <meta property="og:description" content="Generate anonymous disposable emails instantly. Pick from 5 clean short domains. Save multiple addresses and check them anytime." />
   <meta name="theme-color" content="#0a0a14" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,570 +18,321 @@
   /* ================================================
      BACKGROUND ANIMATION SYSTEM
      ================================================ */
-
-  /* Kill the default body::before/after from styles.css */
   body::before, body::after { display: none; }
 
   /* AURORA BLOBS */
-  .aurora-layer {
-    position: fixed; inset: 0;
-    pointer-events: none; z-index: 0; overflow: hidden;
-  }
-  .blob {
-    position: absolute; border-radius: 50%;
-    filter: blur(90px);
-    animation: blob-drift ease-in-out infinite alternate;
-    will-change: transform;
-  }
-  .blob-1 {
-    width: 700px; height: 500px;
-    background: radial-gradient(ellipse, rgba(108,89,255,0.55), transparent 70%);
-    top: -15%; left: -8%;
-    animation-duration: 22s; animation-delay: 0s;
-  }
-  .blob-2 {
-    width: 600px; height: 700px;
-    background: radial-gradient(ellipse, rgba(168,85,247,0.45), transparent 70%);
-    bottom: -20%; right: -8%;
-    animation-duration: 28s; animation-delay: -10s;
-  }
-  .blob-3 {
-    width: 450px; height: 450px;
-    background: radial-gradient(ellipse, rgba(6,182,212,0.3), transparent 70%);
-    top: 35%; left: 55%;
-    animation-duration: 19s; animation-delay: -5s;
-  }
-  .blob-4 {
-    width: 350px; height: 500px;
-    background: radial-gradient(ellipse, rgba(236,72,153,0.2), transparent 70%);
-    top: 55%; left: 15%;
-    animation-duration: 24s; animation-delay: -14s;
-  }
-  .blob-5 {
-    width: 300px; height: 300px;
-    background: radial-gradient(ellipse, rgba(34,211,163,0.2), transparent 70%);
-    top: 10%; right: 25%;
-    animation-duration: 17s; animation-delay: -7s;
-  }
+  .aurora-layer { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+  .blob { position: absolute; border-radius: 50%; filter: blur(90px); animation: blob-drift ease-in-out infinite alternate; will-change: transform; }
+  .blob-1 { width:700px;height:500px;background:radial-gradient(ellipse,rgba(108,89,255,.55),transparent 70%);top:-15%;left:-8%;animation-duration:22s;animation-delay:0s; }
+  .blob-2 { width:600px;height:700px;background:radial-gradient(ellipse,rgba(168,85,247,.45),transparent 70%);bottom:-20%;right:-8%;animation-duration:28s;animation-delay:-10s; }
+  .blob-3 { width:450px;height:450px;background:radial-gradient(ellipse,rgba(6,182,212,.3),transparent 70%);top:35%;left:55%;animation-duration:19s;animation-delay:-5s; }
+  .blob-4 { width:350px;height:500px;background:radial-gradient(ellipse,rgba(236,72,153,.2),transparent 70%);top:55%;left:15%;animation-duration:24s;animation-delay:-14s; }
+  .blob-5 { width:300px;height:300px;background:radial-gradient(ellipse,rgba(34,211,163,.2),transparent 70%);top:10%;right:25%;animation-duration:17s;animation-delay:-7s; }
 
   @keyframes blob-drift {
-    0%   { transform: translate(0, 0) scale(1) rotate(0deg); border-radius: 50%; }
-    20%  { transform: translate(80px, -50px) scale(1.12) rotate(30deg); border-radius: 60% 40% 55% 45%; }
-    40%  { transform: translate(-50px, 90px) scale(0.92) rotate(70deg); border-radius: 40% 60% 45% 55%; }
-    60%  { transform: translate(100px, 40px) scale(1.08) rotate(110deg); border-radius: 55% 45% 60% 40%; }
-    80%  { transform: translate(-70px, -80px) scale(1.04) rotate(150deg); border-radius: 45% 55% 40% 60%; }
-    100% { transform: translate(30px, -30px) scale(0.96) rotate(180deg); border-radius: 50%; }
+    0%   { transform:translate(0,0) scale(1) rotate(0deg); border-radius:50%; }
+    20%  { transform:translate(80px,-50px) scale(1.12) rotate(30deg); border-radius:60% 40% 55% 45%; }
+    40%  { transform:translate(-50px,90px) scale(.92) rotate(70deg); border-radius:40% 60% 45% 55%; }
+    60%  { transform:translate(100px,40px) scale(1.08) rotate(110deg); border-radius:55% 45% 60% 40%; }
+    80%  { transform:translate(-70px,-80px) scale(1.04) rotate(150deg); border-radius:45% 55% 40% 60%; }
+    100% { transform:translate(30px,-30px) scale(.96) rotate(180deg); border-radius:50%; }
   }
 
-  /* GRID LAYER */
-  .grid-layer {
-    position: fixed; inset: 0;
-    pointer-events: none; z-index: 0;
-    background-image:
-      linear-gradient(rgba(108,89,255,0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(108,89,255,0.04) 1px, transparent 1px);
-    background-size: 56px 56px;
-    animation: grid-glow 6s ease-in-out infinite;
-  }
-  @keyframes grid-glow {
-    0%,100% { opacity: 0.6; }
-    50%      { opacity: 1.4; }
-  }
+  /* GRID */
+  .grid-layer { position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(rgba(108,89,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(108,89,255,.04) 1px,transparent 1px);background-size:56px 56px;animation:grid-glow 6s ease-in-out infinite; }
+  @keyframes grid-glow { 0%,100%{opacity:.6} 50%{opacity:1.4} }
 
-  /* PARTICLE LAYER */
-  .particle-layer {
-    position: fixed; inset: 0;
-    pointer-events: none; z-index: 0; overflow: hidden;
-  }
-  .particle {
-    position: absolute;
-    border-radius: 50%;
-    animation: float-up linear infinite;
-    will-change: transform, opacity;
-  }
+  /* PARTICLES */
+  .particle-layer { position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden; }
+  .particle { position:absolute;border-radius:50%;animation:float-up linear infinite;will-change:transform,opacity; }
   @keyframes float-up {
-    0%   { transform: translateY(110vh) translateX(0) scale(0.5); opacity: 0; }
-    5%   { opacity: 1; }
-    90%  { opacity: 0.7; }
-    100% { transform: translateY(-10vh) translateX(var(--pdx, 0px)) scale(1); opacity: 0; }
+    0%   { transform:translateY(100vh) translateX(0) scale(0); opacity:0; }
+    10%  { opacity:1; }
+    90%  { opacity:.6; }
+    100% { transform:translateY(-80px) translateX(var(--pdx,0px)) scale(1.5); opacity:0; }
   }
 
   /* SHOOTING STARS */
-  .star-layer {
-    position: fixed; inset: 0;
-    pointer-events: none; z-index: 0; overflow: hidden;
-  }
-  .shooting-star {
-    position: absolute;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
-    border-radius: 2px;
-    animation: shoot linear infinite;
-    opacity: 0;
-  }
+  .star-layer { position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden; }
+  .shooting-star { position:absolute;height:2px;background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.9),rgba(255,255,255,0));border-radius:2px;animation:shoot linear infinite; }
   @keyframes shoot {
-    0%   { transform: translateX(-200px) translateY(0) rotate(-30deg); opacity: 0; }
-    5%   { opacity: 1; }
-    25%  { opacity: 0; }
-    100% { transform: translateX(calc(100vw + 200px)) translateY(200px) rotate(-30deg); opacity: 0; }
+    0%   { transform:translateX(-100%) translateY(0) rotate(-20deg); opacity:0; }
+    5%   { opacity:1; }
+    50%  { opacity:.8; }
+    100% { transform:translateX(200vw) translateY(100px) rotate(-20deg); opacity:0; }
   }
 
-  /* SCAN LINE (subtle) */
-  .scan-line {
-    position: fixed; left: 0; right: 0; height: 2px;
-    background: linear-gradient(90deg, transparent 0%, rgba(108,89,255,0.25) 30%, rgba(168,85,247,0.4) 50%, rgba(108,89,255,0.25) 70%, transparent 100%);
-    pointer-events: none; z-index: 0;
-    animation: scan 8s ease-in-out infinite;
-    box-shadow: 0 0 20px rgba(108,89,255,0.3);
-  }
-  @keyframes scan {
-    0%   { top: -2px; opacity: 0; }
-    5%   { opacity: 1; }
-    95%  { opacity: 0.5; }
-    100% { top: 100vh; opacity: 0; }
+  /* SCAN LINE */
+  .scan-line { position:fixed;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,rgba(108,89,255,.6),transparent);box-shadow:0 0 20px rgba(108,89,255,.4);animation:scan 8s ease-in-out infinite;z-index:0;pointer-events:none; }
+  @keyframes scan { 0%{top:0;opacity:0}10%{opacity:1}90%{opacity:.8}100%{top:100vh;opacity:0} }
+
+  /* CSS VARS */
+  :root {
+    --bg: #0a0a14;
+    --surface: rgba(16,16,30,0.8);
+    --surface2: rgba(22,22,42,0.9);
+    --border: rgba(255,255,255,0.07);
+    --border-accent: rgba(108,89,255,0.3);
+    --accent: #6c59ff;
+    --accent2: #a855f7;
+    --success: #22d3a3;
+    --text-primary: #f0f0ff;
+    --text-secondary: rgba(240,240,255,0.65);
+    --text-muted: rgba(240,240,255,0.35);
+    --r-sm: 8px; --r-md: 12px; --r-lg: 16px; --r-xl: 20px;
+    --ease: all 0.2s ease;
   }
 
-  /* ================================================
-     APP-SPECIFIC STYLES
-     ================================================ */
-  .app-wrapper {
-    position: relative; z-index: 1;
-    max-width: 940px; margin: 0 auto;
-    padding: 32px 20px 60px;
-  }
-  .app-header { text-align: center; padding: 28px 0 24px; }
-  .app-badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: rgba(108,89,255,0.1); border: 1px solid rgba(108,89,255,0.22);
-    border-radius: 100px; padding: 7px 16px; margin-bottom: 16px;
-    font-size: 11px; font-weight: 600; color: #a78bfa;
-    text-transform: uppercase; letter-spacing: 1.5px;
-  }
-  .live-dot {
-    width: 6px; height: 6px; background: var(--success); border-radius: 50%;
-    animation: ldpulse 2s ease-in-out infinite;
-    box-shadow: 0 0 6px var(--success);
-  }
-  @keyframes ldpulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.8)} }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text-primary); min-height:100vh; overflow-x:hidden; line-height:1.6; }
 
-  .app-header h1 {
-    font-size: clamp(1.8rem, 5vw, 3rem); font-weight: 800;
-    letter-spacing: -2px;
-    background: linear-gradient(135deg, #f0f0ff 0%, #c4b5fd 40%, #a855f7 70%, #6c59ff 100%);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-    margin-bottom: 10px; line-height: 1.15;
-    filter: drop-shadow(0 0 30px rgba(108,89,255,0.4));
-  }
-  .app-header p { color: var(--text-secondary); font-size: 0.95rem; max-width: 420px; margin: 0 auto; }
+  /* ===== NAV ===== */
+  .site-nav { position:sticky;top:0;z-index:100;background:rgba(10,10,20,.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border); }
+  .nav-inner { max-width:1100px;margin:0 auto;padding:0 20px;height:58px;display:flex;align-items:center;gap:24px; }
+  .nav-logo { display:flex;align-items:center;gap:9px;text-decoration:none;flex-shrink:0; }
+  .nav-logo-icon { width:30px;height:30px;background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px; }
+  .nav-logo-text { font-size:16px;font-weight:800;color:var(--text-primary); }
+  .nav-links { display:flex;list-style:none;gap:2px;margin-left:auto; }
+  .nav-links a { color:var(--text-secondary);text-decoration:none;font-size:14px;font-weight:500;padding:6px 12px;border-radius:var(--r-sm);transition:var(--ease); }
+  .nav-links a:hover,.nav-links a.active { color:var(--text-primary);background:rgba(255,255,255,.05); }
+  .nav-right { margin-left:8px; }
+  .nav-cta { background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;text-decoration:none;font-size:13px;font-weight:700;padding:8px 16px;border-radius:100px;transition:var(--ease);white-space:nowrap; }
+  .nav-cta:hover { opacity:.9;transform:translateY(-1px); }
+  .hamburger { display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:6px;flex-shrink:0; }
+  .hamburger span { display:block;width:22px;height:2px;background:var(--text-secondary);border-radius:2px;transition:var(--ease); }
+  .mobile-nav { display:none;flex-direction:column;padding:12px 16px;border-top:1px solid var(--border);background:rgba(10,10,20,.95); }
+  .mobile-nav a { color:var(--text-secondary);text-decoration:none;padding:10px 12px;font-size:14px;border-radius:var(--r-sm);transition:var(--ease); }
+  .mobile-nav a:hover { background:rgba(255,255,255,.04);color:var(--text-primary); }
+  .mobile-nav.open { display:flex; }
+  @media(max-width:700px){.nav-links,.nav-right{display:none}.hamburger{display:flex}}
 
-  /* DOMAIN BADGES */
-  .domain-chips {
-    display: flex; align-items: center; gap: 6px;
-    flex-wrap: wrap; justify-content: center;
-    margin-top: 12px;
-  }
-  .domain-chip-label { font-size: 11px; color: var(--text-muted); margin-right: 2px; }
-  .domain-chip {
-    font-size: 10px; font-weight: 600; color: var(--text-muted);
-    background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 100px; padding: 3px 9px; font-family: 'JetBrains Mono', monospace;
-    transition: var(--ease); cursor: pointer;
-  }
-  .domain-chip:hover { color: var(--accent); border-color: rgba(108,89,255,0.3); background: rgba(108,89,255,0.06); }
+  /* ===== APP WRAPPER ===== */
+  .app-wrapper { position:relative;z-index:1;max-width:680px;margin:0 auto;padding:28px 20px 60px; }
+
+  /* HEADER */
+  .app-header { text-align:center;margin-bottom:24px; }
+  .app-badge { display:inline-flex;align-items:center;gap:7px;background:rgba(108,89,255,.1);border:1px solid rgba(108,89,255,.2);borderRadius:100px;padding:5px 14px;font-size:12px;font-weight:600;color:var(--accent);margin-bottom:14px;border-radius:100px; }
+  .live-dot { width:7px;height:7px;background:var(--success);border-radius:50%;animation:pulse-dot 2s ease-in-out infinite; }
+  @keyframes pulse-dot{0%,100%{box-shadow:0 0 0 0 rgba(34,211,163,.5)}50%{box-shadow:0 0 0 5px rgba(34,211,163,0)}}
+  .app-header h1 { font-size:clamp(22px,4vw,32px);font-weight:800;background:linear-gradient(135deg,#fff 0%,rgba(200,180,255,.9) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px; }
+  .app-header p { color:var(--text-secondary);font-size:14px; }
+
+  /* DOMAIN CHIPS */
+  .domain-chips { display:flex;align-items:center;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:14px; }
+  .domain-chip-label { font-size:11px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.5px; }
+  .domain-chip { background:rgba(108,89,255,.1);border:1px solid rgba(108,89,255,.2);borderRadius:100px;padding:4px 12px;font-size:11px;font-weight:600;color:var(--accent);cursor:pointer;transition:var(--ease);border-radius:100px;font-family:'JetBrains Mono',monospace; }
+  .domain-chip:hover { background:rgba(108,89,255,.2);border-color:rgba(108,89,255,.5);transform:translateY(-1px); }
 
   /* EMAIL CARD */
-  .email-card {
-    background: rgba(22,22,42,0.85);
-    border: 1px solid rgba(108,89,255,0.2);
-    border-radius: var(--r-xl); padding: 26px;
-    margin-bottom: 12px;
-    box-shadow: 0 8px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(108,89,255,0.1);
-    position: relative; overflow: hidden;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-  }
-  /* Animated top border */
-  .email-card::before {
-    content: '';
-    position: absolute; top: 0; left: -100%; right: -100%; height: 2px;
-    background: linear-gradient(90deg, transparent 0%, #6c59ff 30%, #a855f7 50%, #06b6d4 70%, transparent 100%);
-    animation: shimmer-line 3s ease-in-out infinite;
-  }
-  @keyframes shimmer-line {
-    0%   { left: -100%; right: 100%; }
-    100% { left: 100%; right: -100%; }
-  }
-  /* Inner glow */
-  .email-card::after {
-    content: '';
-    position: absolute; inset: 0;
-    background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(108,89,255,0.05), transparent);
-    pointer-events: none;
-  }
+  .email-card { background:var(--surface2);border:1px solid var(--border);border-radius:var(--r-xl);padding:22px;margin-bottom:18px;backdrop-filter:blur(16px);box-shadow:0 8px 40px rgba(0,0,0,.3),0 0 60px rgba(108,89,255,.06); }
+  .email-card-label { font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;display:flex;align-items:center;gap:6px;margin-bottom:14px; }
+  .email-card-label svg { width:13px;height:13px;color:var(--accent); }
 
-  .email-card-label {
-    font-size: 10px; font-weight: 700; text-transform: uppercase;
-    letter-spacing: 1.5px; color: var(--text-muted);
-    display: flex; align-items: center; gap: 7px; margin-bottom: 16px;
-  }
-  .email-card-label svg { width: 13px; height: 13px; }
+  /* EMAIL BUILDER */
+  .email-builder { display:flex;align-items:center;gap:8px;background:rgba(108,89,255,.06);border:1px solid rgba(108,89,255,.15);border-radius:var(--r-md);padding:4px 12px;margin-bottom:12px;flex-wrap:nowrap; }
+  .builder-icon { width:32px;height:32px;background:rgba(108,89,255,.1);border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;color:var(--accent);flex-shrink:0; }
+  .builder-icon svg { width:15px;height:15px; }
+  .username-input { flex:1 1 0;min-width:80px;background:transparent;border:none;outline:none;font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:500;color:var(--text-primary);padding:13px 4px;caret-color:var(--accent); }
+  .username-input::placeholder { color:var(--text-muted); }
+  .at-symbol { font-size:15px;font-weight:700;color:var(--accent);flex-shrink:0; }
+  .domain-select { background:rgba(108,89,255,.1);border:1px solid rgba(108,89,255,.2);border-radius:var(--r-sm);color:var(--text-primary);font-size:13px;font-weight:600;padding:7px 8px;cursor:pointer;outline:none;transition:var(--ease);font-family:'JetBrains Mono',monospace;flex-shrink:0;min-width:130px;max-width:175px; }
+  .domain-select:hover { border-color:var(--accent); }
+  .domain-select option { background:#1a1a2e;color:var(--text-primary); }
+  .apply-btn { display:flex;align-items:center;gap:6px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border:none;border-radius:var(--r-sm);padding:9px 14px;font-size:13px;font-weight:700;cursor:pointer;transition:var(--ease);white-space:nowrap;flex-shrink:0; }
+  .apply-btn svg { width:13px;height:13px; }
+  .apply-btn:hover { opacity:.9;transform:translateY(-1px); }
 
-  /* DOMAIN BUILDER */
-  .email-builder {
-    display: flex; align-items: center; gap: 0;
-    background: var(--bg-input); border: 1px solid rgba(108,89,255,0.2);
-    border-radius: var(--r-md); overflow: hidden;
-    transition: var(--ease);
-    box-shadow: 0 0 0 0 rgba(108,89,255,0);
-  }
-  .email-builder:focus-within {
-    border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(108,89,255,0.15);
-  }
-  .builder-icon {
-    display: flex; align-items: center; padding: 0 14px;
-    color: var(--accent); flex-shrink: 0;
-  }
-  .builder-icon svg { width: 18px; height: 18px; }
-  .username-input {
-    flex: 1; min-width: 0;
-    background: transparent; border: none; outline: none;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 14px; font-weight: 500; color: var(--text-primary);
-    padding: 13px 4px 13px 0;
-    caret-color: var(--accent);
-  }
-  .username-input::placeholder { color: var(--text-muted); }
-  .at-symbol {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 16px; font-weight: 700; color: var(--accent);
-    padding: 0 2px; flex-shrink: 0; user-select: none;
-  }
-  .domain-select {
-    background: rgba(108,89,255,0.08); border: none; outline: none;
-    border-left: 1px solid rgba(108,89,255,0.2);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 13px; font-weight: 600; color: #a78bfa;
-    padding: 13px 10px 13px 12px;
-    cursor: pointer; appearance: none;
-    -webkit-appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23a78bfa' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 10px center;
-    padding-right: 30px;
-    min-width: 170px;
-    transition: var(--ease);
-  }
-  .domain-select:hover { background-color: rgba(108,89,255,0.14); }
-  .domain-select option { background: #16162a; color: var(--text-primary); }
-
-  .apply-btn {
-    background: var(--accent-grad); border: none; cursor: pointer;
-    color: #fff; font-family: 'Inter', sans-serif;
-    font-size: 12px; font-weight: 700; letter-spacing: 0.3px;
-    padding: 0 16px; height: 100%; flex-shrink: 0;
-    display: flex; align-items: center; gap: 5px;
-    transition: var(--ease); white-space: nowrap;
-    border-left: 1px solid rgba(255,255,255,0.1);
-  }
-  .apply-btn:hover { filter: brightness(1.12); }
-  .apply-btn:active { transform: scale(0.97); }
-  .apply-btn svg { width: 14px; height: 14px; }
-
-  /* FULL EMAIL PREVIEW */
-  .email-preview-row {
-    display: flex; align-items: center; gap: 10px;
-    margin-top: 12px; flex-wrap: wrap;
-  }
-  .email-full-display {
-    flex: 1; min-width: 0;
-    display: flex; align-items: center; gap: 8px;
-    background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.05);
-    border-radius: var(--r-sm); padding: 8px 14px;
-  }
-  #email-display {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 13px; font-weight: 500; color: var(--text-primary);
-    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-    flex: 1;
-  }
-  #email-display.dim { color: var(--text-muted); font-style: italic; }
+  /* EMAIL PREVIEW */
+  .email-preview-row { display:flex;align-items:center;gap:10px;margin-bottom:14px; }
+  .email-full-display { flex:1;background:rgba(0,0,0,.25);border:1px solid var(--border);border-radius:var(--r-md);padding:14px 16px;font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:500;color:var(--text-primary);overflow:hidden;text-overflow:ellipsis;white-space:nowrap; }
+  .email-full-display .dim { color:var(--text-muted); }
+  #email-display.dim { color:var(--text-muted); }
 
   /* BUTTONS */
-  .btn {
-    display: inline-flex; align-items: center; gap: 7px;
-    padding: 10px 18px; border-radius: var(--r-md);
-    font-family: inherit; font-size: 13px; font-weight: 600;
-    cursor: pointer; border: none; transition: var(--ease);
-    white-space: nowrap;
-  }
-  .btn:active { transform: scale(0.97); }
-  .btn svg { width: 14px; height: 14px; flex-shrink: 0; }
-  .btn-primary {
-    background: var(--accent-grad); color: #fff;
-    box-shadow: 0 4px 16px rgba(108,89,255,0.3);
-  }
-  .btn-primary:hover { box-shadow: 0 6px 24px rgba(108,89,255,0.5); transform: translateY(-1px); }
-  .btn-secondary { background: rgba(255,255,255,0.06); color: var(--text-primary); border: 1px solid var(--border); }
-  .btn-secondary:hover { background: rgba(255,255,255,0.1); }
-  .btn-ghost { background: transparent; color: var(--text-secondary); border: 1px solid var(--border); padding: 9px 14px; }
-  .btn-ghost:hover { color: var(--text-primary); border-color: rgba(255,255,255,0.2); }
-
-  .action-row {
-    display: flex; align-items: center; gap: 8px;
-    margin-top: 14px; flex-wrap: wrap;
-  }
+  .btn { display:inline-flex;align-items:center;gap:7px;border:none;border-radius:var(--r-sm);font-family:'Inter',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:var(--ease);padding:10px 16px;white-space:nowrap; }
+  .btn svg { width:14px;height:14px;flex-shrink:0; }
+  .btn:disabled { opacity:.4;cursor:not-allowed; }
+  .btn-primary { background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;box-shadow:0 4px 14px rgba(108,89,255,.3); }
+  .btn-primary:hover:not(:disabled) { opacity:.9;transform:translateY(-1px); }
+  .btn-secondary { background:rgba(108,89,255,.12);border:1px solid rgba(108,89,255,.25);color:var(--accent); }
+  .btn-secondary:hover { background:rgba(108,89,255,.2); }
+  .btn-ghost { background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--text-secondary); }
+  .btn-ghost:hover { background:rgba(255,255,255,.08);color:var(--text-primary); }
+  .action-row { display:flex;gap:8px;flex-wrap:wrap; }
 
   /* SAVED ADDRESSES */
-  #saved-section { margin-bottom: 12px; display: none; }
-  .saved-header {
-    display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;
-  }
-  .saved-header-title {
-    display: flex; align-items: center; gap: 8px;
-    font-size: 11px; font-weight: 700; text-transform: uppercase;
-    letter-spacing: 1.5px; color: var(--text-secondary);
-  }
-  .saved-header-title svg { width: 14px; height: 14px; color: var(--accent); }
-  .saved-count {
-    background: rgba(108,89,255,0.15); color: var(--accent);
-    font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 100px;
-  }
-  .saved-list { display: flex; flex-direction: column; gap: 6px; }
-  .saved-item {
-    background: rgba(22,22,42,0.7); border: 1px solid var(--border);
-    border-radius: var(--r-md); padding: 11px 14px;
-    display: flex; align-items: center; justify-content: space-between;
-    gap: 12px; transition: var(--ease); backdrop-filter: blur(8px);
-  }
-  .saved-item:hover { border-color: rgba(255,255,255,0.12); }
-  .saved-item.is-active { border-color: var(--border-accent); background: rgba(108,89,255,0.07); }
-  .saved-left { display: flex; align-items: center; gap: 10px; min-width: 0; flex: 1; }
-  .saved-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--text-muted); flex-shrink: 0; transition: var(--ease); }
-  .saved-item.is-active .saved-dot { background: var(--success); box-shadow: 0 0 8px rgba(34,211,163,0.5); }
-  .saved-info { min-width: 0; }
-  .saved-email { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .saved-meta { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
-  .saved-right { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
-  .saved-active-pill {
-    font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;
-    color: var(--success); background: rgba(34,211,163,0.1); border: 1px solid rgba(34,211,163,0.2);
-    border-radius: 100px; padding: 3px 10px;
-  }
-  .saved-switch {
-    font-size: 11px; font-weight: 600; color: var(--accent);
-    background: rgba(108,89,255,0.1); border: 1px solid rgba(108,89,255,0.2);
-    border-radius: var(--r-sm); padding: 4px 10px; cursor: pointer; transition: var(--ease);
-  }
-  .saved-switch:hover { background: rgba(108,89,255,0.2); }
-  .saved-del {
-    background: rgba(239,68,68,0.07); border: 1px solid rgba(239,68,68,0.15);
-    border-radius: var(--r-sm); color: #f87171; padding: 4px 7px;
-    cursor: pointer; transition: var(--ease); display: flex; align-items: center;
-  }
-  .saved-del:hover { background: rgba(239,68,68,0.18); }
-  .saved-del svg { width: 12px; height: 12px; }
+  #saved-section { background:var(--surface2);border:1px solid var(--border);border-radius:var(--r-xl);padding:18px;margin-bottom:18px;backdrop-filter:blur(12px); }
+  .saved-header { display:flex;align-items:center;justify-content:space-between;margin-bottom:12px; }
+  .saved-header-title { font-size:13px;font-weight:700;display:flex;align-items:center;gap:8px; }
+  .saved-header-title svg { width:14px;height:14px;color:var(--accent); }
+  .saved-count { background:rgba(108,89,255,.15);color:var(--accent);font-size:11px;font-weight:700;padding:2px 8px;border-radius:100px; }
+  .saved-list { display:flex;flex-direction:column;gap:8px; }
+  .saved-item { display:flex;align-items:center;justify-content:space-between;gap:12px;background:rgba(255,255,255,.02);border:1px solid var(--border);border-radius:var(--r-md);padding:10px 14px;transition:var(--ease); }
+  .saved-item.is-active { border-color:rgba(108,89,255,.4);background:rgba(108,89,255,.07); }
+  .saved-left { display:flex;align-items:center;gap:10px;min-width:0; }
+  .saved-dot { width:8px;height:8px;border-radius:50%;background:var(--text-muted);flex-shrink:0; }
+  .is-active .saved-dot { background:var(--success); }
+  .saved-info { min-width:0; }
+  .saved-email { font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500;color:var(--text-primary);white-space:nowrap;overflow:hidden;text-overflow:ellipsis; }
+  .saved-meta { font-size:11px;color:var(--text-muted); }
+  .saved-right { display:flex;align-items:center;gap:6px;flex-shrink:0; }
+  .saved-switch { background:rgba(108,89,255,.12);border:1px solid rgba(108,89,255,.25);color:var(--accent);font-size:11px;font-weight:700;padding:5px 10px;border-radius:var(--r-sm);cursor:pointer;transition:var(--ease); }
+  .saved-switch:hover { background:rgba(108,89,255,.25); }
+  .saved-active-pill { background:rgba(34,211,163,.12);color:var(--success);font-size:11px;font-weight:700;padding:4px 10px;border-radius:100px;border:1px solid rgba(34,211,163,.2); }
+  .saved-del { background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.15);color:rgba(239,68,68,.7);width:28px;height:28px;border-radius:var(--r-sm);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:var(--ease); }
+  .saved-del svg { width:12px;height:12px; }
+  .saved-del:hover { background:rgba(239,68,68,.2);color:#ef4444; }
 
   /* STATUS BAR */
-  .status-bar {
-    display: flex; align-items: center; justify-content: space-between;
-    background: rgba(22,22,42,0.7); border: 1px solid var(--border);
-    border-radius: var(--r-md); padding: 10px 16px;
-    margin-bottom: 14px; flex-wrap: wrap; gap: 10px;
-    backdrop-filter: blur(8px);
-  }
-  .status-left { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
-  .status-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-secondary); }
-  .status-item svg { width: 13px; height: 13px; }
-  .status-item .hi { color: var(--text-primary); font-weight: 600; }
-  .timer-wrap { display: flex; align-items: center; gap: 8px; }
-  .timer-ring { position: relative; width: 34px; height: 34px; flex-shrink: 0; }
-  .timer-ring svg { width: 34px; height: 34px; transform: rotate(-90deg); }
-  .timer-ring .tr { fill: none; stroke: rgba(255,255,255,0.06); stroke-width: 3; }
-  .timer-ring .tp {
-    fill: none; stroke: url(#tg); stroke-width: 3;
-    stroke-linecap: round; stroke-dasharray: 88; stroke-dashoffset: 0;
-    transition: stroke-dashoffset 1s linear;
-  }
-  .timer-num {
-    position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
-    font-size: 10px; font-weight: 700; color: var(--accent);
-    font-family: 'JetBrains Mono', monospace;
-  }
+  .status-bar { display:flex;align-items:center;justify-content:space-between;padding:12px 18px;background:rgba(16,16,30,.5);border:1px solid var(--border);border-radius:var(--r-md);margin-bottom:14px;font-size:12px;gap:12px; }
+  .status-left { display:flex;align-items:center;gap:18px;flex-wrap:wrap; }
+  .status-item { display:flex;align-items:center;gap:6px;color:var(--text-muted); }
+  .status-item svg { width:13px;height:13px; }
+  .status-item .hi { color:var(--accent);font-weight:700;font-family:'JetBrains Mono',monospace; }
+  .timer-wrap { display:flex;align-items:center;gap:8px; }
+  .timer-ring { width:36px;height:36px;position:relative; }
+  .timer-ring svg { width:36px;height:36px;transform:rotate(-90deg); }
+  .tr { fill:none;stroke:rgba(108,89,255,.15);stroke-width:3; }
+  .tp { fill:none;stroke:var(--accent);stroke-width:3;stroke-dasharray:87.96;stroke-dashoffset:0;stroke-linecap:round;transition:stroke-dashoffset 1s linear; }
+  .timer-num { position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;font-family:'JetBrains Mono',monospace;color:var(--accent); }
 
   /* INBOX */
-  .inbox-header {
-    display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;
-  }
-  .inbox-title-row { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700; }
-  .inbox-title-row svg { width: 17px; height: 17px; color: var(--accent); }
-  .inbox-badge {
-    background: var(--accent-grad); color: #fff;
-    font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 100px;
-    box-shadow: 0 2px 8px rgba(108,89,255,0.4);
-  }
-  #inbox-list { display: flex; flex-direction: column; gap: 8px; }
+  .glow-divider { height:1px;background:linear-gradient(90deg,transparent,rgba(108,89,255,.4),transparent);margin:8px 0 18px;opacity:.6; }
+  .inbox-header { display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap;gap:8px; }
+  .inbox-title-row { display:flex;align-items:center;gap:8px;font-size:14px;font-weight:800; }
+  .inbox-title-row svg { width:16px;height:16px;color:var(--accent); }
+  .inbox-badge { background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-size:10px;font-weight:800;padding:2px 7px;border-radius:100px;min-width:20px;text-align:center; }
+  .email-item { display:grid;grid-template-columns:40px 1fr auto;gap:12px;align-items:center;padding:14px 16px;border:1px solid var(--border);border-radius:var(--r-md);margin-bottom:7px;cursor:pointer;transition:var(--ease);animation:fadeIn .25s ease both; }
+  .email-item.unread { border-left:3px solid var(--accent);background:rgba(108,89,255,.04); }
+  .email-item:hover { background:rgba(108,89,255,.08);border-color:var(--border-accent);transform:translateX(2px); }
+  @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+  .email-avatar { width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0; }
+  .av0{background:linear-gradient(135deg,#6c59ff,#a855f7)}.av1{background:linear-gradient(135deg,#06b6d4,#3b82f6)}.av2{background:linear-gradient(135deg,#22d3a3,#06b6d4)}.av3{background:linear-gradient(135deg,#ec4899,#a855f7)}.av4{background:linear-gradient(135deg,#f59e0b,#ef4444)}.av5{background:linear-gradient(135deg,#84cc16,#22d3a3)}
+  .email-meta { min-width:0; }
+  .email-sender { font-size:13px;font-weight:600;color:var(--text-primary);white-space:nowrap;overflow:hidden;text-overflow:ellipsis; }
+  .email-subject { font-size:12px;color:var(--text-secondary);white-space:nowrap;overflow:hidden;text-overflow:ellipsis; }
+  .email-time { font-size:10px;color:var(--text-muted);font-family:'JetBrains Mono',monospace; }
 
-  .email-item {
-    background: rgba(22,22,42,0.75); border: 1px solid var(--border);
-    border-radius: var(--r-md); padding: 14px 18px;
-    cursor: pointer; transition: var(--ease);
-    display: grid; grid-template-columns: auto 1fr auto;
-    gap: 13px; align-items: center; position: relative; overflow: hidden;
-    animation: itemIn 0.4s cubic-bezier(0.34,1.56,0.64,1) backwards;
-    backdrop-filter: blur(8px);
-  }
-  @keyframes itemIn { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
-  .email-item:hover {
-    background: rgba(28,28,53,0.9); border-color: rgba(108,89,255,0.35);
-    box-shadow: 0 8px 36px rgba(108,89,255,0.15); transform: translateY(-2px);
-  }
-  .email-item.unread::before {
-    content: ''; position: absolute; left: 0; top: 0; bottom: 0;
-    width: 3px; background: var(--accent-grad); border-radius: 3px 0 0 3px;
-  }
-  .email-avatar {
-    width: 42px; height: 42px; border-radius: 11px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 15px; font-weight: 700; color: #fff; flex-shrink: 0;
-  }
-  .av0{background:linear-gradient(135deg,#6c59ff,#a855f7)}
-  .av1{background:linear-gradient(135deg,#06b6d4,#3b82f6)}
-  .av2{background:linear-gradient(135deg,#f59e0b,#ef4444)}
-  .av3{background:linear-gradient(135deg,#22d3a3,#06b6d4)}
-  .av4{background:linear-gradient(135deg,#f43f5e,#a855f7)}
-  .av5{background:linear-gradient(135deg,#84cc16,#22d3a3)}
-  .email-meta { min-width: 0; }
-  .email-sender { font-size: 13px; font-weight: 600; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 3px; }
-  .email-subject { font-size: 12px; color: var(--text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .email-time { font-size: 10px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; }
-
-  /* SPINNERS */
-  .spinner-wrap { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 48px 20px; gap: 14px; }
-  .app-spinner { width: 36px; height: 36px; border: 3px solid rgba(108,89,255,0.15); border-top-color: var(--accent); border-radius: 50%; animation: aispin 0.8s linear infinite; }
-  @keyframes aispin { to{transform:rotate(360deg)} }
-  .spinner-text { color: var(--text-muted); font-size: 13px; }
-  .empty-state { text-align: center; padding: 56px 20px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
-  .empty-icon { width: 68px; height: 68px; background: rgba(108,89,255,0.08); border: 1px solid rgba(108,89,255,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--accent); }
-  .empty-icon svg { width: 30px; height: 30px; }
-  .empty-state h3 { font-size: 17px; font-weight: 700; }
-  .empty-state p { color: var(--text-muted); font-size: 13px; max-width: 260px; }
+  /* SPINNER & EMPTY */
+  .spinner-wrap { display:flex;flex-direction:column;align-items:center;justify-content:center;padding:48px 20px;gap:14px; }
+  .app-spinner { width:36px;height:36px;border:3px solid rgba(108,89,255,.15);border-top-color:var(--accent);border-radius:50%;animation:aispin .8s linear infinite; }
+  @keyframes aispin{to{transform:rotate(360deg)}}
+  .spinner-text { color:var(--text-muted);font-size:13px; }
+  .empty-state { text-align:center;padding:56px 20px;display:flex;flex-direction:column;align-items:center;gap:12px; }
+  .empty-icon { width:68px;height:68px;background:rgba(108,89,255,.08);border:1px solid rgba(108,89,255,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--accent); }
+  .empty-icon svg { width:30px;height:30px; }
+  .empty-state h3 { font-size:17px;font-weight:700; }
+  .empty-state p { color:var(--text-muted);font-size:13px;max-width:260px; }
 
   /* MODAL */
-  .modal-overlay {
-    position: fixed; inset: 0; background: rgba(0,0,0,0.75);
-    backdrop-filter: blur(12px); z-index: 500;
-    display: flex; align-items: center; justify-content: center;
-    padding: 20px; opacity: 0; pointer-events: none; transition: opacity 0.25s ease;
-  }
-  .modal-overlay.open { opacity: 1; pointer-events: all; }
-  .modal {
-    background: rgba(22,22,42,0.95);
-    border: 1px solid rgba(108,89,255,0.25);
-    border-radius: var(--r-xl); width: 100%; max-width: 700px; max-height: 90vh;
-    display: flex; flex-direction: column;
-    box-shadow: 0 32px 80px rgba(0,0,0,0.6), 0 0 60px rgba(108,89,255,0.15);
-    transform: translateY(20px) scale(0.97); transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
-    backdrop-filter: blur(20px);
-  }
-  .modal-overlay.open .modal { transform: translateY(0) scale(1); }
-  .modal-header { padding: 22px 26px 18px; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; gap: 14px; }
-  .modal-title-area { flex: 1; min-width: 0; }
-  .modal-subject { font-size: 17px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px; line-height: 1.3; }
-  .modal-meta { display: flex; flex-direction: column; gap: 4px; }
-  .modal-meta-row { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-secondary); }
-  .modal-meta-row span { color: var(--text-primary); font-weight: 500; }
-  .modal-meta-row svg { width: 13px; height: 13px; }
-  .modal-close {
-    background: rgba(255,255,255,0.06); border: 1px solid var(--border);
-    border-radius: var(--r-sm); color: var(--text-secondary); cursor: pointer;
-    width: 34px; height: 34px; display: flex; align-items: center; justify-content: center;
-    transition: var(--ease); flex-shrink: 0;
-  }
-  .modal-close:hover { background: rgba(255,255,255,0.12); color: var(--text-primary); }
-  .modal-body { flex: 1; overflow-y: auto; padding: 22px 26px; }
-  .modal-footer { padding: 14px 26px; border-top: 1px solid var(--border); display: flex; justify-content: flex-end; gap: 8px; }
-  .email-body-text { font-size: 14px; line-height: 1.8; color: var(--text-secondary); white-space: pre-wrap; word-break: break-word; }
-  .email-frame { width: 100%; border: none; background: #fff; border-radius: var(--r-md); min-height: 300px; }
+  .modal-overlay { position:fixed;inset:0;background:rgba(0,0,0,.75);backdrop-filter:blur(12px);z-index:500;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .25s ease; }
+  .modal-overlay.open { opacity:1;pointer-events:all; }
+  .modal { background:rgba(22,22,42,.95);border:1px solid rgba(108,89,255,.25);border-radius:var(--r-xl);width:100%;max-width:700px;max-height:90vh;display:flex;flex-direction:column;box-shadow:0 32px 80px rgba(0,0,0,.6),0 0 60px rgba(108,89,255,.15);transform:translateY(20px) scale(.97);transition:transform .3s cubic-bezier(.34,1.56,.64,1);backdrop-filter:blur(20px); }
+  .modal-overlay.open .modal { transform:translateY(0) scale(1); }
+  .modal-header { padding:22px 26px 18px;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;gap:14px; }
+  .modal-title-area { flex:1;min-width:0; }
+  .modal-subject { font-size:17px;font-weight:700;color:var(--text-primary);margin-bottom:8px;line-height:1.3; }
+  .modal-meta { display:flex;flex-direction:column;gap:4px; }
+  .modal-meta-row { display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-secondary); }
+  .modal-meta-row span { color:var(--text-primary);font-weight:500; }
+  .modal-meta-row svg { width:13px;height:13px; }
+  .modal-close { background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:var(--r-sm);color:var(--text-secondary);cursor:pointer;width:34px;height:34px;display:flex;align-items:center;justify-content:center;transition:var(--ease);flex-shrink:0; }
+  .modal-close:hover { background:rgba(255,255,255,.12);color:var(--text-primary); }
+  .modal-body { flex:1;overflow-y:auto;padding:22px 26px; }
+  .modal-footer { padding:14px 26px;border-top:1px solid var(--border);display:flex;justify-content:flex-end;gap:8px; }
+  .email-body-text { font-size:14px;line-height:1.8;color:var(--text-secondary);white-space:pre-wrap;word-break:break-word; }
+  .email-frame { width:100%;border:none;background:#fff;border-radius:var(--r-md);min-height:300px; }
 
   /* TOAST */
-  .copy-toast {
-    position: fixed; bottom: 28px; left: 50%;
-    transform: translateX(-50%) translateY(80px);
-    background: rgba(34,211,163,0.12); border: 1px solid rgba(34,211,163,0.3);
-    color: var(--success); padding: 11px 20px; border-radius: 100px;
-    font-size: 13px; font-weight: 600; backdrop-filter: blur(16px); z-index: 1000;
-    transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), opacity 0.3s ease;
-    opacity: 0; display: flex; align-items: center; gap: 7px;
-    box-shadow: 0 8px 32px rgba(34,211,163,0.2);
-  }
-  .copy-toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+  .copy-toast { position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(80px);background:rgba(34,211,163,.12);border:1px solid rgba(34,211,163,.3);color:var(--success);padding:11px 20px;border-radius:100px;font-size:13px;font-weight:600;backdrop-filter:blur(16px);z-index:1000;transition:transform .35s cubic-bezier(.34,1.56,.64,1),opacity .3s ease;opacity:0;display:flex;align-items:center;gap:7px;box-shadow:0 8px 32px rgba(34,211,163,.2); }
+  .copy-toast.show { transform:translateX(-50%) translateY(0);opacity:1; }
 
   /* CONTENT SECTIONS */
-  .content-outer { position: relative; z-index: 1; max-width: 940px; margin: 0 auto; padding: 0 20px; }
-  .how-section { margin: 48px 0 40px; }
-  .how-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; }
+  .content-outer { position:relative;z-index:1;max-width:940px;margin:0 auto;padding:0 20px; }
+  .how-section { margin:48px 0 40px; }
+  .how-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:14px; }
   @media(max-width:800px){.how-grid{grid-template-columns:repeat(2,1fr)}}
   @media(max-width:480px){.how-grid{grid-template-columns:1fr}}
-  .how-step {
-    background: rgba(22,22,42,0.7); border: 1px solid var(--border);
-    border-radius: var(--r-lg); padding: 20px; text-align: center;
-    backdrop-filter: blur(8px); transition: var(--ease);
-  }
-  .how-step:hover { border-color: var(--border-accent); transform: translateY(-3px); }
-  .how-num { font-size: 10px; font-weight: 800; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; font-family: 'JetBrains Mono', monospace; }
-  .how-emoji { font-size: 28px; margin-bottom: 10px; }
-  .how-step h3 { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
-  .how-step p { font-size: 12px; color: var(--text-secondary); line-height: 1.6; }
+  .how-step { background:rgba(22,22,42,.7);border:1px solid var(--border);border-radius:var(--r-lg);padding:20px;text-align:center;backdrop-filter:blur(8px);transition:var(--ease); }
+  .how-step:hover { border-color:var(--border-accent);transform:translateY(-3px); }
+  .how-num { font-size:10px;font-weight:800;color:var(--accent);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;font-family:'JetBrains Mono',monospace; }
+  .how-emoji { font-size:28px;margin-bottom:10px; }
+  .how-step h3 { font-size:13px;font-weight:700;margin-bottom:6px; }
+  .how-step p { font-size:12px;color:var(--text-secondary);line-height:1.6; }
 
-  .faq-section { margin: 40px 0; }
-  .faq-item {
-    background: rgba(22,22,42,0.7); border: 1px solid var(--border);
-    border-radius: var(--r-md); margin-bottom: 7px; overflow: hidden;
-    backdrop-filter: blur(8px);
-  }
-  .faq-q {
-    width: 100%; text-align: left; background: none; border: none;
-    padding: 15px 18px; cursor: pointer; display: flex; align-items: center; justify-content: space-between;
-    font-family: inherit; font-size: 14px; font-weight: 600; color: var(--text-primary); transition: var(--ease);
-  }
-  .faq-q:hover { background: rgba(255,255,255,0.02); }
-  .faq-q svg { width: 17px; height: 17px; color: var(--accent); transition: transform 0.25s ease; flex-shrink: 0; }
-  .faq-item.open .faq-q svg { transform: rotate(45deg); }
-  .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; font-size: 13px; color: var(--text-secondary); line-height: 1.75; }
-  .faq-item.open .faq-a { max-height: 200px; }
-  .faq-a-inner { padding: 0 18px 16px; }
+  .section-label { font-size:11px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px; }
+  .section-title { font-size:20px;font-weight:800; }
 
-  .section-hdr { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; flex-wrap: wrap; gap: 8px; }
-  .section-hdr-title { font-size: 17px; font-weight: 800; }
-  .section-hdr-link { font-size: 13px; color: var(--accent); text-decoration: none; font-weight: 600; }
-  .section-hdr-link:hover { text-decoration: underline; }
+  .faq-section { margin:40px 0; }
+  .faq-item { background:rgba(22,22,42,.7);border:1px solid var(--border);border-radius:var(--r-md);margin-bottom:7px;overflow:hidden;backdrop-filter:blur(8px); }
+  .faq-q { width:100%;text-align:left;background:none;border:none;padding:15px 18px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;font-family:inherit;font-size:14px;font-weight:600;color:var(--text-primary);transition:var(--ease); }
+  .faq-q:hover { background:rgba(255,255,255,.02); }
+  .faq-q svg { width:17px;height:17px;color:var(--accent);transition:transform .25s ease;flex-shrink:0; }
+  .faq-item.open .faq-q svg { transform:rotate(45deg); }
+  .faq-a { max-height:0;overflow:hidden;transition:max-height .3s ease;font-size:13px;color:var(--text-secondary);line-height:1.75; }
+  .faq-item.open .faq-a { max-height:200px; }
+  .faq-a-inner { padding:0 18px 16px; }
 
-  .glow-divider {
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(108,89,255,0.4), transparent);
-    margin: 8px 0 18px; opacity: 0.6;
-  }
+  .section-hdr { display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:8px; }
+  .section-hdr-title { font-size:17px;font-weight:800; }
+  .section-hdr-link { font-size:13px;color:var(--accent);text-decoration:none;font-weight:600; }
+  .section-hdr-link:hover { text-decoration:underline; }
+
+  /* BLOG CARDS */
+  .blog-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:14px; }
+  @media(max-width:700px){.blog-grid{grid-template-columns:1fr}}
+  .blog-card { background:rgba(22,22,42,.7);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;text-decoration:none;transition:var(--ease);display:flex;flex-direction:column; }
+  .blog-card:hover { border-color:var(--border-accent);transform:translateY(-3px); }
+  .blog-thumb { height:90px;display:flex;align-items:center;justify-content:center;font-size:36px; }
+  .blog-thumb-1{background:linear-gradient(135deg,rgba(108,89,255,.3),rgba(168,85,247,.2))}
+  .blog-thumb-2{background:linear-gradient(135deg,rgba(239,68,68,.2),rgba(236,72,153,.2))}
+  .blog-thumb-3{background:linear-gradient(135deg,rgba(6,182,212,.2),rgba(34,211,163,.2))}
+  .blog-body { padding:14px;flex:1;display:flex;flex-direction:column;gap:6px; }
+  .blog-tag { font-size:10px;font-weight:700;padding:3px 8px;border-radius:100px;text-transform:uppercase;letter-spacing:.5px; }
+  .t-guide{background:rgba(108,89,255,.15);color:var(--accent)}.t-tips{background:rgba(239,68,68,.15);color:#ef4444}.t-privacy{background:rgba(6,182,212,.15);color:#06b6d4}
+  .blog-card-title { font-size:13px;font-weight:700;color:var(--text-primary);line-height:1.3; }
+  .blog-card-excerpt { font-size:12px;color:var(--text-secondary);line-height:1.5;flex:1; }
+  .blog-card-foot { display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text-muted);margin-top:auto; }
+  .blog-card-foot svg { width:11px;height:11px; }
+
+  /* FOOTER */
+  .site-footer { position:relative;z-index:1;border-top:1px solid var(--border);padding:40px 20px 24px;margin-top:40px;background:rgba(10,10,20,.6);backdrop-filter:blur(12px); }
+  .footer-inner { max-width:1100px;margin:0 auto; }
+  .footer-grid { display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;margin-bottom:28px; }
+  @media(max-width:700px){.footer-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:480px){.footer-grid{grid-template-columns:1fr}}
+  .footer-brand-desc { font-size:13px;color:var(--text-secondary);line-height:1.6;margin-top:8px;max-width:240px; }
+  .footer-badge { display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:12px;color:var(--success);font-weight:600; }
+  .footer-badge .dot { width:8px;height:8px;background:var(--success);border-radius:50%;animation:pulse-dot 2s ease-in-out infinite; }
+  .footer-col-title { font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:12px; }
+  .footer-links { list-style:none; }
+  .footer-links li { margin-bottom:8px; }
+  .footer-links a { font-size:13px;color:var(--text-secondary);text-decoration:none;transition:var(--ease); }
+  .footer-links a:hover { color:var(--text-primary); }
+  .footer-bottom { display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-top:20px;border-top:1px solid var(--border); }
+  .footer-copy { font-size:12px;color:var(--text-muted); }
+  .footer-legal { display:flex;gap:16px; }
+  .footer-legal a { font-size:12px;color:var(--text-muted);text-decoration:none;transition:var(--ease); }
+  .footer-legal a:hover { color:var(--text-secondary); }
 
   /* RESPONSIVE */
   @media(max-width:580px){
-    .app-wrapper { padding: 16px 14px 40px; }
-    .email-builder { flex-wrap: wrap; }
-    .domain-select { min-width: 130px; font-size: 11px; }
-    .email-item { grid-template-columns: auto 1fr; }
-    .email-time { display: none; }
-    .status-bar { flex-direction: column; align-items: flex-start; }
-    .modal-header,.modal-body,.modal-footer { padding-left: 16px; padding-right: 16px; }
-    .action-row .btn { padding: 9px 12px; font-size: 12px; }
+    .app-wrapper{padding:16px 14px 40px}
+    .email-builder{flex-wrap:wrap}
+    .domain-select{min-width:120px;font-size:11px}
+    .email-item{grid-template-columns:auto 1fr}
+    .email-time{display:none}
+    .status-bar{flex-direction:column;align-items:flex-start}
+    .modal-header,.modal-body,.modal-footer{padding-left:16px;padding-right:16px}
+    .action-row .btn{padding:9px 12px;font-size:12px}
   }
-  @media(max-width:400px){
-    .apply-btn { display: none; }
-  }
+  @media(max-width:400px){.apply-btn{display:none}}
   </style>
 </head>
 
 <body>
-  <!-- ===== BACKGROUND ANIMATION LAYERS ===== -->
+  <!-- BACKGROUND LAYERS -->
   <svg width="0" height="0" style="position:absolute;overflow:hidden">
     <defs>
       <linearGradient id="tg" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -589,48 +340,36 @@
       </linearGradient>
     </defs>
   </svg>
-
-  <!-- Aurora blobs -->
   <div class="aurora-layer" aria-hidden="true">
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
-    <div class="blob blob-3"></div>
-    <div class="blob blob-4"></div>
+    <div class="blob blob-1"></div><div class="blob blob-2"></div>
+    <div class="blob blob-3"></div><div class="blob blob-4"></div>
     <div class="blob blob-5"></div>
   </div>
-
-  <!-- Grid -->
   <div class="grid-layer" aria-hidden="true"></div>
-
-  <!-- Particle container (filled by JS) -->
   <div class="particle-layer" id="particle-layer" aria-hidden="true"></div>
-
-  <!-- Shooting stars (filled by JS) -->
   <div class="star-layer" id="star-layer" aria-hidden="true"></div>
-
-  <!-- Scan line -->
   <div class="scan-line" aria-hidden="true"></div>
 
-  <!-- ===== TOAST ===== -->
+  <!-- TOAST -->
   <div class="copy-toast" id="copy-toast" role="alert">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15"><polyline points="20 6 9 17 4 12"/></svg>
     Copied to clipboard!
   </div>
 
-  <!-- ===== MODAL ===== -->
+  <!-- MODAL -->
   <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true">
     <div class="modal">
       <div class="modal-header">
         <div class="modal-title-area">
-          <div class="modal-subject" id="modal-subject">Loadingâ€¦</div>
+          <div class="modal-subject" id="modal-subject">Loading&hellip;</div>
           <div class="modal-meta">
             <div class="modal-meta-row">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-              From: <span id="modal-from">â€”</span>
+              From: <span id="modal-from">&mdash;</span>
             </div>
             <div class="modal-meta-row">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-              Received: <span id="modal-date">â€”</span>
+              Received: <span id="modal-date">&mdash;</span>
             </div>
           </div>
         </div>
@@ -645,11 +384,11 @@
     </div>
   </div>
 
-  <!-- ===== NAVIGATION ===== -->
+  <!-- NAVIGATION -->
   <nav class="site-nav" id="site-nav">
     <div class="nav-inner">
       <a href="/" class="nav-logo">
-        <div class="nav-logo-icon">âš¡</div>
+        <div class="nav-logo-icon">&#9889;</div>
         <span class="nav-logo-text">TempMail</span>
       </a>
       <ul class="nav-links">
@@ -658,31 +397,29 @@
         <li><a href="/about.html">About</a></li>
         <li><a href="/contact.html">Contact</a></li>
       </ul>
-      <div class="nav-right"><a href="/" class="nav-cta">Get Free Email âš¡</a></div>
+      <div class="nav-right"><a href="/" class="nav-cta">Get Free Email &#9889;</a></div>
       <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
     <div class="mobile-nav" id="mobile-nav">
-      <a href="/">âš¡ Home</a><a href="/blog.html">ðŸ“ Blog</a>
-      <a href="/about.html">â„¹ï¸ About</a><a href="/contact.html">ðŸ“« Contact</a>
-      <a href="/privacy.html">ðŸ”’ Privacy</a><a href="/terms.html">ðŸ“‹ Terms</a>
+      <a href="/">&#9889; Home</a><a href="/blog.html">Blog</a>
+      <a href="/about.html">About</a><a href="/contact.html">Contact</a>
+      <a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a>
     </div>
   </nav>
 
-  <!-- ===== MAIN APP ===== -->
+  <!-- MAIN APP -->
   <div class="app-wrapper">
-    <!-- Header -->
     <header class="app-header">
       <div class="app-badge"><div class="live-dot"></div> Free &amp; Anonymous</div>
-      <h1>âš¡ Instant Temp Email</h1>
+      <h1>&#9889; Instant Temp Email</h1>
       <p>Generate disposable addresses. Choose your domain. Save multiple inboxes.</p>
-      <!-- Quick domain chips (filled dynamically) -->
       <div class="domain-chips" id="domain-chips">
         <span class="domain-chip-label">Pick domain:</span>
-        <span style="font-size:11px;color:var(--text-muted)">Loading domainsâ€¦</span>
+        <span style="font-size:11px;color:var(--text-muted)">Loading&hellip;</span>
       </div>
     </header>
 
-    <!-- Email Card -->
+    <!-- EMAIL CARD -->
     <div class="email-card">
       <div class="email-card-label">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
@@ -701,7 +438,7 @@
         />
         <span class="at-symbol">@</span>
         <select id="domain-select" class="domain-select" onchange="previewEmail()" aria-label="Email domain">
-          <option value="1secmail.com">1secmail.com</option>
+          <option value="grr.la">grr.la</option>
         </select>
         <button class="apply-btn" id="apply-btn" onclick="applyCustomEmail()">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
@@ -709,10 +446,10 @@
         </button>
       </div>
 
-      <!-- FULL EMAIL PREVIEW + COPY -->
+      <!-- EMAIL DISPLAY + COPY -->
       <div class="email-preview-row">
         <div class="email-full-display">
-          <span id="email-display" class="dim">Generatingâ€¦</span>
+          <span id="email-display" class="dim">Generating&hellip;</span>
         </div>
         <button class="btn btn-primary" id="copy-btn" disabled>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
@@ -738,7 +475,7 @@
     </div>
 
     <!-- SAVED ADDRESSES -->
-    <section id="saved-section">
+    <section id="saved-section" style="display:none">
       <div class="saved-header">
         <div class="saved-header-title">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/></svg>
@@ -759,7 +496,7 @@
         </div>
         <div class="status-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          Checked: <span id="last-check" class="hi">â€”</span>
+          Checked: <span id="last-check" class="hi">&mdash;</span>
         </div>
       </div>
       <div class="timer-wrap">
@@ -787,7 +524,7 @@
     <div id="inbox-list"></div>
   </div>
 
-  <!-- ===== CONTENT (SEO / AdSense) ===== -->
+  <!-- SEO CONTENT -->
   <div class="content-outer">
     <section class="how-section">
       <div style="margin-bottom:18px">
@@ -795,10 +532,10 @@
         <div class="section-title">Create. Choose. Receive.</div>
       </div>
       <div class="how-grid">
-        <div class="how-step"><div class="how-num">01</div><div class="how-emoji">âš¡</div><h3>Auto Generate</h3><p>A random address is created instantly when you open the page.</p></div>
-        <div class="how-step"><div class="how-num">02</div><div class="how-emoji">ðŸŒ</div><h3>Choose Domain</h3><p>Pick from 9 domains: guerrillamail.com, spam4.me, grr.la and more.</p></div>
-        <div class="how-step"><div class="how-num">03</div><div class="how-emoji">ðŸ“¬</div><h3>Receive Emails</h3><p>Inbox auto-refreshes every 10 seconds. Click to read any message.</p></div>
-        <div class="how-step"><div class="how-num">04</div><div class="how-emoji">ðŸ’¾</div><h3>Save & Return</h3><p>Save up to 15 addresses. Switch between them anytime, any session.</p></div>
+        <div class="how-step"><div class="how-num">01</div><div class="how-emoji">&#9889;</div><h3>Auto Generate</h3><p>A random address is created instantly when you open the page.</p></div>
+        <div class="how-step"><div class="how-num">02</div><div class="how-emoji">&#127760;</div><h3>Choose Domain</h3><p>Pick from 5 clean short domains: grr.la, spam4.me, sharklasers.com and more.</p></div>
+        <div class="how-step"><div class="how-num">03</div><div class="how-emoji">&#128236;</div><h3>Receive Emails</h3><p>Inbox auto-refreshes every 10 seconds. Click to read any message.</p></div>
+        <div class="how-step"><div class="how-num">04</div><div class="how-emoji">&#128190;</div><h3>Save &amp; Return</h3><p>Save up to 15 addresses. Switch between them anytime, any session.</p></div>
       </div>
     </section>
 
@@ -809,7 +546,7 @@
       </div>
       <div class="faq-item">
         <button class="faq-q">Can I choose any domain?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-        <div class="faq-a"><div class="faq-a-inner">Yes! All available domains are loaded live from the 1secmail API and shown in the dropdown and quick-pick chips. Each is a real, distinct domain â€” choose any one and emails sent to it will arrive in your inbox.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes! Choose from 5 short clean domains using the dropdown or quick-pick chips. All domains share the same inbox, so emails sent to any of them arrive in your inbox.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">Can I set a custom username?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
@@ -817,7 +554,7 @@
       </div>
       <div class="faq-item">
         <button class="faq-q">How do I save an address for later?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-        <div class="faq-a"><div class="faq-a-inner">Click the "Save Address" button. Your address is stored in your browser's localStorage â€” never on a server. Return anytime and click "Switch" to reload that inbox.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Click the "Save Address" button. Your address is stored in your browser's localStorage &mdash; never on a server. Return anytime and click "Switch" to reload that inbox.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">Is this completely private?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
@@ -828,19 +565,19 @@
     <section style="margin:40px 0 20px">
       <div class="section-hdr">
         <div class="section-hdr-title">From Our Blog</div>
-        <a href="/blog.html" class="section-hdr-link">View All â†’</a>
+        <a href="/blog.html" class="section-hdr-link">View All &rarr;</a>
       </div>
       <div class="blog-grid">
         <a href="/blog/what-is-disposable-email.html" class="blog-card">
-          <div class="blog-thumb blog-thumb-1">ðŸ“§</div>
-          <div class="blog-body"><span class="blog-tag t-guide">Guide</span><div class="blog-card-title">What is a Disposable Email Address?</div><div class="blog-card-excerpt">Learn everything about temp mail â€” how it works and when to use it.</div><div class="blog-card-foot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>5 min read</div></div>
+          <div class="blog-thumb blog-thumb-1">&#128247;</div>
+          <div class="blog-body"><span class="blog-tag t-guide">Guide</span><div class="blog-card-title">What is a Disposable Email Address?</div><div class="blog-card-excerpt">Learn everything about temp mail &mdash; how it works and when to use it.</div><div class="blog-card-foot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>5 min read</div></div>
         </a>
         <a href="/blog/how-to-stop-email-spam.html" class="blog-card">
-          <div class="blog-thumb blog-thumb-2">ðŸš«</div>
+          <div class="blog-thumb blog-thumb-2">&#128683;</div>
           <div class="blog-body"><span class="blog-tag t-tips">Tips</span><div class="blog-card-title">10 Proven Ways to Stop Email Spam</div><div class="blog-card-excerpt">Battle-tested strategies to clean your inbox and keep it spam-free.</div><div class="blog-card-foot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>6 min read</div></div>
         </a>
         <a href="/blog/online-privacy-guide-2025.html" class="blog-card">
-          <div class="blog-thumb blog-thumb-3">ðŸ›¡ï¸</div>
+          <div class="blog-thumb blog-thumb-3">&#128737;</div>
           <div class="blog-body"><span class="blog-tag t-privacy">Privacy</span><div class="blog-card-title">The Complete Online Privacy Guide 2025</div><div class="blog-card-excerpt">Protect your data, secure your identity, and stay anonymous online.</div><div class="blog-card-foot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>8 min read</div></div>
         </a>
       </div>
@@ -852,7 +589,7 @@
     <div class="footer-inner">
       <div class="footer-grid">
         <div>
-          <a href="/" class="nav-logo" style="margin-bottom:12px;display:inline-flex"><div class="nav-logo-icon">âš¡</div><span class="nav-logo-text">TempMail</span></a>
+          <a href="/" class="nav-logo" style="margin-bottom:12px;display:inline-flex"><div class="nav-logo-icon">&#9889;</div><span class="nav-logo-text">TempMail</span></a>
           <p class="footer-brand-desc">Free disposable email addresses with domain choice. Your privacy, always protected.</p>
           <div class="footer-badge"><span class="dot"></span> Service Online</div>
         </div>
@@ -861,7 +598,7 @@
         <div><div class="footer-col-title">Legal</div><ul class="footer-links"><li><a href="/privacy.html">Privacy Policy</a></li><li><a href="/terms.html">Terms of Service</a></li></ul></div>
       </div>
       <div class="footer-bottom">
-        <p class="footer-copy">Â© 2025 TempMail. All rights reserved. Free disposable temporary email.</p>
+        <p class="footer-copy">&copy; 2025 TempMail. All rights reserved. Free disposable temporary email.</p>
         <div class="footer-legal"><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/contact.html">Contact</a></div>
       </div>
     </div>
@@ -869,47 +606,44 @@
 
   <script>
   /* ================================================
-     TEMPMAIL v4 â€” 1SECMAIL API + DOMAIN CHOOSER
-     Powered by: https://www.1secmail.com/api/v1/
-     Free, no key, 7+ real domains, real domain choice
+     TEMPMAIL v5 — GUERRILLA MAIL + 5 CLEAN DOMAINS
+     API: https://api.guerrillamail.com/ajax.php
+     Free, no key, CORS proxy fallback, ultra-reliable
      ================================================ */
 
-  /* ===== BACKGROUND ANIMATION INIT ===== */
+  /* ===== BACKGROUND ANIMATIONS ===== */
   (function initBG() {
     const pcLayer = document.getElementById('particle-layer');
-    const colors = ['rgba(108,89,255,0.8)','rgba(168,85,247,0.7)','rgba(34,211,163,0.6)','rgba(255,255,255,0.5)','rgba(6,182,212,0.6)','rgba(236,72,153,0.5)'];
+    const colors = ['rgba(108,89,255,.8)','rgba(168,85,247,.7)','rgba(34,211,163,.6)','rgba(255,255,255,.5)','rgba(6,182,212,.6)','rgba(236,72,153,.5)'];
     const count = window.innerWidth < 600 ? 18 : 38;
     for (let i = 0; i < count; i++) {
       const p = document.createElement('div'); p.className = 'particle';
       const size = Math.random() * 4 + 2;
       const color = colors[Math.floor(Math.random() * colors.length)];
-      p.style.cssText = `left:${(Math.random()*100).toFixed(1)}%;width:${size.toFixed(1)}px;height:${size.toFixed(1)}px;background:${color};box-shadow:0 0 ${(size*2).toFixed(0)}px ${color};animation-duration:${(Math.random()*18+10).toFixed(1)}s;animation-delay:-${(Math.random()*20).toFixed(1)}s;--pdx:${((Math.random()-0.5)*180).toFixed(0)}px;`;
+      p.style.cssText = `left:${(Math.random()*100).toFixed(1)}%;width:${size.toFixed(1)}px;height:${size.toFixed(1)}px;background:${color};box-shadow:0 0 ${(size*2).toFixed(0)}px ${color};animation-duration:${(Math.random()*18+10).toFixed(1)}s;animation-delay:-${(Math.random()*20).toFixed(1)}s;--pdx:${((Math.random()-.5)*180).toFixed(0)}px;`;
       pcLayer.appendChild(p);
     }
     const starLayer = document.getElementById('star-layer');
-    const starCount = window.innerWidth < 600 ? 3 : 6;
-    for (let i = 0; i < starCount; i++) {
+    for (let i = 0; i < (window.innerWidth < 600 ? 3 : 6); i++) {
       const s = document.createElement('div'); s.className = 'shooting-star';
-      s.style.cssText = `width:${(Math.random()*160+60).toFixed(0)}px;top:${(Math.random()*60).toFixed(1)}%;left:${(Math.random()*60).toFixed(1)}%;animation-duration:${(Math.random()*4+3).toFixed(1)}s;animation-delay:-${(Math.random()*20).toFixed(1)}s;box-shadow:0 0 8px rgba(255,255,255,0.6);`;
+      s.style.cssText = `width:${(Math.random()*160+60).toFixed(0)}px;top:${(Math.random()*60).toFixed(1)}%;left:${(Math.random()*60).toFixed(1)}%;animation-duration:${(Math.random()*4+3).toFixed(1)}s;animation-delay:-${(Math.random()*20).toFixed(1)}s;`;
       starLayer.appendChild(s);
     }
   })();
 
-  /* ===== GUERRILLA MAIL API â€” SIMPLE & RELIABLE ===== */
-  // https://api.guerrillamail.com/ajax.php â€” free, no key, incl. CORS proxy fallback
-  // 5 short clean domains â€” all share same inbox (just different display)
-  const GAPI  = 'https://api.guerrillamail.com/ajax.php';
+  /* ===== CONFIG ===== */
+  const GAPI = 'https://api.guerrillamail.com/ajax.php';
   const PROXY = 'https://corsproxy.io/?url=';
   const SAVED_KEY = 'tm_saved_v5';
   const REFRESH_SECS = 10;
 
-  // 5 domains â€” short, clean, memorable. All route to same Guerrilla Mail inbox.
+  // 5 short clean domains — all share same Guerrilla Mail inbox
   const DOMAINS = [
-    { v: 'grr.la',            l: 'grr.la'            },  // â­ shortest
-    { v: 'spam4.me',          l: 'spam4.me'          },  // catchy
-    { v: 'sharklasers.com',   l: 'sharklasers.com'   },  // fun
-    { v: 'guerrillamail.com', l: 'guerrillamail.com' },  // classic
-    { v: 'guerrillamail.info',l: 'guerrillamail.info'},  // alt
+    { v:'grr.la',             l:'grr.la'            },
+    { v:'spam4.me',           l:'spam4.me'          },
+    { v:'sharklasers.com',    l:'sharklasers.com'   },
+    { v:'guerrillamail.com',  l:'guerrillamail.com' },
+    { v:'guerrillamail.info', l:'guerrillamail.info'},
   ];
 
   let sessionToken = '';
@@ -931,12 +665,11 @@
       DOMAINS.map(d => `<span class="domain-chip" onclick="quickDomain('${d.v}')">${d.l}</span>`).join('');
   }
 
-  /* ===== GUERRILLA MAIL FETCH ===== */
+  /* ===== GUERRILLA MAIL API ===== */
   async function gFetch(params) {
     const url = new URL(GAPI);
     Object.entries(params).forEach(([k,v]) => url.searchParams.set(k,v));
     if (sessionToken) url.searchParams.set('sid_token', sessionToken);
-    // Try direct, fallback via CORS proxy
     try {
       const r = await fetch(url.toString());
       if (!r.ok) throw 0;
@@ -969,7 +702,7 @@
     section.style.display='block'; cnt.textContent=saved.length;
     list.innerHTML=saved.map(addr=>{
       const active=addr.email===currentEmail;
-      const e=v=>v.replace(/'/g,"\\'").replace(/"/g,'&quot;');
+      const esc=v=>String(v||'').replace(/'/g,"\\'").replace(/"/g,'&quot;');
       return`<div class="saved-item${active?' is-active':''}">
         <div class="saved-left">
           <div class="saved-dot"></div>
@@ -979,8 +712,8 @@
           </div>
         </div>
         <div class="saved-right">
-          ${active?'<span class="saved-active-pill">Active</span>':`<button class="saved-switch" onclick="switchTo('${e(addr.email)}','${e(addr.tok||'')}')">Switch</button>`}
-          <button class="saved-del" onclick="removeAddress('${e(addr.email)}')" aria-label="Remove">
+          ${active?'<span class="saved-active-pill">Active</span>':`<button class="saved-switch" onclick="switchTo('${esc(addr.email)}','${esc(addr.tok||'')}')">Switch</button>`}
+          <button class="saved-del" onclick="removeAddress('${esc(addr.email)}')" aria-label="Remove">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
           </button>
         </div>
@@ -988,56 +721,56 @@
     }).join('');
   }
 
-  /* ===== SET EMAIL DISPLAY ===== */
+  /* ===== EMAIL DISPLAY ===== */
   function setEmailDisplay(user, domain){
-    currentUser = user; currentDomain = domain;
-    currentEmail = `${user}@${domain}`;
-    const el = document.getElementById('email-display');
-    el.textContent = currentEmail; el.classList.remove('dim');
-    document.getElementById('copy-btn').disabled = false;
-    document.getElementById('username-input').value = user;
-    const sel = document.getElementById('domain-select');
-    if([...sel.options].some(o=>o.value===domain)) sel.value = domain;
+    currentUser=user; currentDomain=domain;
+    currentEmail=`${user}@${domain}`;
+    const el=document.getElementById('email-display');
+    el.textContent=currentEmail; el.classList.remove('dim');
+    document.getElementById('copy-btn').disabled=false;
+    document.getElementById('username-input').value=user;
+    const sel=document.getElementById('domain-select');
+    if([...sel.options].some(o=>o.value===domain)) sel.value=domain;
   }
 
-  /* ===== INIT EMAIL ===== */
+  /* ===== INIT ===== */
   async function initEmail(){
-    const el = document.getElementById('email-display');
-    el.textContent = 'Generating addressâ€¦'; el.classList.add('dim');
-    document.getElementById('copy-btn').disabled = true;
-    document.getElementById('inbox-list').innerHTML = buildSpinner();
+    const el=document.getElementById('email-display');
+    el.textContent='Generating\u2026'; el.classList.add('dim');
+    document.getElementById('copy-btn').disabled=true;
+    document.getElementById('inbox-list').innerHTML=buildSpinner();
     emails=[]; emailCount=0;
-    try {
-      const d = await gFetch({f:'get_email_address', lang:'en'});
-      sessionToken = d.sid_token || '';
-      const user = (d.email_addr||'').split('@')[0] || 'user';
-      // Always display with user's currently selected (or default) domain
+    try{
+      const d=await gFetch({f:'get_email_address',lang:'en'});
+      sessionToken=d.sid_token||'';
+      const user=(d.email_addr||'').split('@')[0]||'user';
       setEmailDisplay(user, currentDomain);
       await fetchEmails(false);
       startTimer(); renderSaved();
-    } catch {
-      el.textContent = 'Error â€” please refresh'; el.classList.add('dim');
-      document.getElementById('inbox-list').innerHTML = buildError('Could not connect. Check your network.');
+    }catch{
+      el.textContent='Error \u2014 please refresh'; el.classList.add('dim');
+      document.getElementById('inbox-list').innerHTML=buildError('Could not connect. Check your network.');
     }
   }
 
   /* ===== APPLY CUSTOM EMAIL ===== */
   async function applyCustomEmail(){
-    const rawUser = document.getElementById('username-input').value.trim().toLowerCase();
-    const user = rawUser.replace(/[^a-z0-9._-]/g,'').slice(0,40);
-    const domain = document.getElementById('domain-select').value;
-    if(user.length < 3){
-      document.getElementById('username-input').style.outline='2px solid #ef4444';
-      setTimeout(()=>document.getElementById('username-input').style.outline='',1500);
+    const rawUser=document.getElementById('username-input').value.trim().toLowerCase();
+    const user=rawUser.replace(/[^a-z0-9._-]/g,'').slice(0,40);
+    const domain=document.getElementById('domain-select').value;
+    if(user.length<3){
+      const inp=document.getElementById('username-input');
+      inp.style.outline='2px solid #ef4444';
+      setTimeout(()=>inp.style.outline='',1500);
       return;
     }
     clearInterval(timerInterval);
     emails=[]; emailCount=0;
-    try {
-      const d = await gFetch({f:'set_email_user', email_user: user, lang:'en'});
-      sessionToken = d.sid_token || sessionToken;
-    } catch {}
-    setEmailDisplay(user, domain);
+    try{
+      const d=await gFetch({f:'set_email_user',email_user:user,lang:'en'});
+      sessionToken=d.sid_token||sessionToken;
+    }catch{}
+    setEmailDisplay(user,domain);
     await fetchEmails(false);
     startTimer(); renderSaved();
     window.scrollTo({top:0,behavior:'smooth'});
@@ -1045,26 +778,26 @@
 
   /* ===== QUICK DOMAIN CHIP ===== */
   function quickDomain(domain){
-    document.getElementById('domain-select').value = domain;
+    document.getElementById('domain-select').value=domain;
     applyCustomEmail();
   }
 
-  /* ===== PREVIEW EMAIL ===== */
+  /* ===== PREVIEW ===== */
   function previewEmail(){
-    const user = document.getElementById('username-input').value || currentUser;
-    const domain = document.getElementById('domain-select').value;
-    const el = document.getElementById('email-display');
+    const user=document.getElementById('username-input').value||currentUser;
+    const domain=document.getElementById('domain-select').value;
+    const el=document.getElementById('email-display');
     if(user){el.textContent=`${user}@${domain}`;el.classList.remove('dim');}
   }
 
-  /* ===== SWITCH SAVED ADDRESS ===== */
-  async function switchTo(email, tok){
+  /* ===== SWITCH SAVED ===== */
+  async function switchTo(email,tok){
     if(email===currentEmail)return;
     clearInterval(timerInterval);
     emails=[]; emailCount=0;
-    sessionToken = tok || '';
+    sessionToken=tok||'';
     const parts=email.split('@');
-    setEmailDisplay(parts[0]||email, parts[1]||currentDomain);
+    setEmailDisplay(parts[0]||email,parts[1]||currentDomain);
     document.getElementById('inbox-list').innerHTML=buildSpinner();
     try{await gFetch({f:'set_email_user',email_user:parts[0]||email,lang:'en'});}catch{}
     await fetchEmails(false);
@@ -1076,12 +809,12 @@
   async function fetchEmails(silent){
     if(!silent)document.getElementById('refresh-icon').classList.add('spin-icon');
     try{
-      const d = await gFetch({f:'get_email_list', offset:0});
-      sessionToken = d.sid_token || sessionToken;
-      emails = d.list || []; emailCount = emails.length;
+      const d=await gFetch({f:'get_email_list',offset:0});
+      sessionToken=d.sid_token||sessionToken;
+      emails=d.list||[]; emailCount=emails.length;
       renderInbox();
     }catch{
-      if(!silent)document.getElementById('inbox-list').innerHTML=buildError('Inbox fetch failed. Retryingâ€¦');
+      if(!silent)document.getElementById('inbox-list').innerHTML=buildError('Inbox fetch failed. Retrying\u2026');
     }finally{
       document.getElementById('refresh-icon').classList.remove('spin-icon');
       updateStatus();
@@ -1095,7 +828,7 @@
     if(emailCount===0){c.innerHTML=buildEmpty();return;}
     c.innerHTML=emails.map((e,i)=>{
       const ch=(e.mail_from||'?').charAt(0).toUpperCase();
-      return`<div class="email-item unread" id="mi-${e.mail_id}" style="animation-delay:${i*0.05}s"
+      return`<div class="email-item unread" id="mi-${e.mail_id}" style="animation-delay:${i*.05}s"
         onclick="openEmail('${e.mail_id}')" role="button" tabindex="0"
         onkeydown="if(event.key==='Enter')openEmail('${e.mail_id}')">
         <div class="email-avatar av${ch.charCodeAt(0)%6}">${ch}</div>
@@ -1111,15 +844,15 @@
   /* ===== OPEN EMAIL ===== */
   async function openEmail(id){
     openModal();
-    document.getElementById('modal-subject').textContent='Loadingâ€¦';
-    document.getElementById('modal-from').textContent='â€¦';
-    document.getElementById('modal-date').textContent='â€¦';
+    document.getElementById('modal-subject').textContent='Loading\u2026';
+    document.getElementById('modal-from').textContent='\u2026';
+    document.getElementById('modal-date').textContent='\u2026';
     document.getElementById('modal-body').innerHTML=buildSpinner();
     try{
       const d=await gFetch({f:'fetch_email',email_id:id});
       sessionToken=d.sid_token||sessionToken;
       document.getElementById('modal-subject').textContent=d.mail_subject||'(No Subject)';
-      document.getElementById('modal-from').textContent=d.mail_from||'â€”';
+      document.getElementById('modal-from').textContent=d.mail_from||'\u2014';
       document.getElementById('modal-date').textContent=fmtDateFull(d.mail_timestamp);
       const body=document.getElementById('modal-body');
       if(d.mail_body&&/<[a-z][\s\S]*>/i.test(d.mail_body)){
@@ -1147,7 +880,7 @@
   async function copyEmail(){
     if(!currentEmail)return;
     try{await navigator.clipboard.writeText(currentEmail);}
-    catch{const t=document.createElement('textarea');t.value=currentEmail;t.style.cssText='position:fixed;opacity:0;';document.body.appendChild(t);t.select();document.execCommand('copy');document.body.removeChild(t);}
+    catch{const t=document.createElement('textarea');t.value=currentEmail;t.style.cssText='position:fixed;opacity:0';document.body.appendChild(t);t.select();document.execCommand('copy');document.body.removeChild(t);}
     const toast=document.getElementById('copy-toast');
     toast.classList.add('show');
     setTimeout(()=>toast.classList.remove('show'),2500);
@@ -1158,10 +891,7 @@
   function startTimer(){
     clearInterval(timerInterval);
     countdown=REFRESH_SECS; updateTimer();
-    timerInterval=setInterval(()=>{
-      countdown--; updateTimer();
-      if(countdown<=0){countdown=REFRESH_SECS;fetchEmails(true);}
-    },1000);
+    timerInterval=setInterval(()=>{countdown--;updateTimer();if(countdown<=0){countdown=REFRESH_SECS;fetchEmails(true);}},1000);
   }
   function updateTimer(){
     document.getElementById('timer-num').textContent=countdown;
@@ -1173,13 +903,13 @@
   }
 
   /* ===== HELPERS ===== */
-  function buildSpinner(){return'<div class="spinner-wrap"><div class="app-spinner"></div><div class="spinner-text">Fetching messagesâ€¦</div></div>';}
+  function buildSpinner(){return'<div class="spinner-wrap"><div class="app-spinner"></div><div class="spinner-text">Fetching messages\u2026</div></div>';}
   function buildEmpty(){return'<div class="empty-state"><div class="empty-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><h3>No emails yet</h3><p>Inbox is empty. Auto-refreshes every 10 seconds.</p></div>';}
   function buildError(msg){return`<div class="empty-state"><div class="empty-icon" style="border-color:rgba(239,68,68,.3);color:#ef4444"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div><h3>Something went wrong</h3><p>${msg}</p></div>`;}
   function escHtml(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
   function stripHtml(h){return h.replace(/<[^>]*>/g,'').replace(/&nbsp;/g,' ').replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>');}
-  function fmtTime(ts){if(!ts)return'â€”';const d=new Date(parseInt(ts)*1000),now=new Date(),diff=(now-d)/1e3;if(diff<60)return'Just now';if(diff<3600)return Math.floor(diff/60)+'m ago';if(diff<86400)return d.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});return d.toLocaleDateString([],{month:'short',day:'numeric'});}
-  function fmtDateFull(ts){if(!ts)return'â€”';return new Date(parseInt(ts)*1000).toLocaleString([],{year:'numeric',month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'});}
+  function fmtTime(ts){if(!ts)return'\u2014';const d=new Date(parseInt(ts)*1000),now=new Date(),diff=(now-d)/1e3;if(diff<60)return'Just now';if(diff<3600)return Math.floor(diff/60)+'m ago';if(diff<86400)return d.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});return d.toLocaleDateString([],{month:'short',day:'numeric'});}
+  function fmtDateFull(ts){if(!ts)return'\u2014';return new Date(parseInt(ts)*1000).toLocaleString([],{year:'numeric',month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'});}
 
   /* ===== SPIN CSS ===== */
   document.head.insertAdjacentHTML('beforeend','<style>.spin-icon{animation:rsp .8s linear infinite}@keyframes rsp{to{transform:rotate(360deg)}}</style>');
@@ -1208,11 +938,8 @@
   document.getElementById('modal-close-btn').addEventListener('click',closeModal);
   document.getElementById('modal-overlay').addEventListener('click',e=>{if(e.target===document.getElementById('modal-overlay'))closeModal();});
   document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
-
-  /* ===== MOBILE NAV ===== */
   document.getElementById('hamburger').addEventListener('click',()=>document.getElementById('mobile-nav').classList.toggle('open'));
 
-  /* ===== FAQ ===== */
   document.querySelectorAll('.faq-q').forEach(btn=>{
     btn.addEventListener('click',()=>{
       const item=btn.parentElement;
